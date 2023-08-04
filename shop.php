@@ -41,7 +41,7 @@
     <div class="d-flex flex-column vh-100">
 
         <?php
-        include "menunav.html";
+        include "menunav.php";
         ?>
 
         <section id="featured" class="my-5 py-5">

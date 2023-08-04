@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +7,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorial</title>
-
-
+    <title>Index</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 
 <body>
@@ -15,7 +18,7 @@
     <div class="d-flex flex-column vh-100">
 
         <?php
-        include "menunav.html";
+        include "menunav.php";
         ?>
 
         <main class="d-flex flex-grow-1 flex-column justify-content-center" style="margin-top:92px; margin-bottom: -100px;">
@@ -428,7 +431,7 @@
     </div>
 
     <?php
-    include "Modelo/loginmodal.php"
+    include("Modelo/loginmodal.php");
     ?>
     <script src="JS/bootstrap.bundle.js"></script>
 </body>
