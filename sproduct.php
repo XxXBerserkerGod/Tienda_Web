@@ -6,6 +6,8 @@ $sql = "SELECT * FROM producto where  id_producto = $id";
 
 $listar = $conn->query($sql);
 
+$row = $listar->fetch_assoc()
+
 ?>
 
 <!DOCTYPE html>
@@ -70,17 +72,18 @@ $listar = $conn->query($sql);
         <section class="container sproduct my-5 pt-5">
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-12 col-12">
-                    <img class="img-fluid w-100 pb-1" src="img/shop/1.jpg" id="MainImg" alt="">
+
+                    <img class="img-fluid w-100 pb-1" src="<?= $row['img_principal'] ?>" id="MainImg" alt="">
 
                     <div class="small-img-group">
                         <div class="small-img-col">
-                            <img src="img/shop/1.jpg" width="100%" class="small-img" alt="">
+                            <img src="<?= $row['img_principal'] ?>" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="img/shop/24.jpg" width="100%" class="small-img" alt="">
+                            <img src="<?= $row['img_uno'] ?>" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="img/shop/25.jpg" width="100%" class="small-img" alt="">
+                            <img src="<?= $row['img_dos'] ?>" width="100%" class="small-img" alt="">
                         </div>
 
                     </div>
@@ -88,8 +91,8 @@ $listar = $conn->query($sql);
 
                 <div class="col-lg-6 col-md-12 col-12">
                     <h6> <a href="shop.php" class="text-decoration-none text-black">Productos</a> / T-Shirt</h6>
-                    <h3 class="py-4">Men's Fashion T Shirt</h3>
-                    <h2>$139.00</h2>
+                    <h3 class="py-4"><?= $row['nombre_producto'] ?></h3>
+                    <h2>S/. <?= $row['precio_producto'] ?></h2>
                     <select class="my-3">
                         <option>Select Size</option>
                         <option>XL</option>
@@ -100,13 +103,8 @@ $listar = $conn->query($sql);
                     <input type="number" value="1">
                     <button class="buy-btn">Add To Cart</button>
                     <h4 class="mt-5 mb-4">Product Details</h4>
-                    <span>The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per sq. yd. fabric
-                        constructed
-                        from 100% cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each
-                        wear.
-                        Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a
-                        range
-                        of colors, it offers it all in the ultimate head-turning package.</span>
+                    <span><?= $row['descripcion'] ?></span>
+
                 </div>
             </div>
         </section>

@@ -5,6 +5,7 @@ $sql = "SELECT * FROM producto";
 
 $listar = $conn->query($sql);
 
+
 ?>
 
 
@@ -74,7 +75,7 @@ $listar = $conn->query($sql);
                             <i class="fas fa-star"></i>
                         </div>
                         <h5 class="p-name"><?= $row['nombre_producto']; ?></h5>
-                        <h4 class="p-price">$<?= $row['precio_producto']; ?></h4>
+                        <h4 class="p-price">S/. <?= $row['precio_producto']; ?></h4>
                         <button class="buy-btn">Comprar</button>
                     </div>
 
