@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,14 +51,44 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i onclick="window.location.href='cart.php';" class="fa-solid fa-bag-shopping"></i>
             </li>
+
+            <?php 
+                session_start();
+                if (isset($_SESSION['loged']) && $_SESSION['loged'] == '1') {
+            ?>
+            
             <li class=" ms-4">
-                <i class="fa-solid fa-circle-user useric"></i>
+                <a href="./Controller/logout.php">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </a>
             </li>
+
+            <?php 
+                } else {
+            ?>       
+
+            <li class=" ms-4">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#login_Modal">
+                    <i class="fa-solid fa-circle-user useric"></i>
+                </a>
+            </li>
+
+            <?php
+                }   
+            ?>
+            
+            <?php 
+            ?>
+            
+
     </div>
 </nav>
 
 <body>
-
+    <?php 
+        include("Modelo/loginmodal.php");
+    ?>
+    <script src="JS/bootstrap.bundle.js"></script>
 </body>
 
 </html>
