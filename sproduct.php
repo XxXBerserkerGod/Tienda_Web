@@ -1,3 +1,13 @@
+<?php
+include_once('./Modelo/conexion.php');
+$id = $_GET["id"];
+
+$sql = "SELECT * FROM producto where  id_producto = $id";
+
+$listar = $conn->query($sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +64,7 @@
     <div class="d-flex flex-column vh-100">
 
         <?php
-        include "menunav.html";
+        include "menunav.php";
         ?>
 
         <section class="container sproduct my-5 pt-5">
@@ -72,9 +82,7 @@
                         <div class="small-img-col">
                             <img src="img/shop/25.jpg" width="100%" class="small-img" alt="">
                         </div>
-                        <div class="small-img-col">
-                            <img src="img/shop/26.jpg" width="100%" class="small-img" alt="">
-                        </div>
+
                     </div>
                 </div>
 

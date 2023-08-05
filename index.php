@@ -15,7 +15,7 @@
     <div class="d-flex flex-column vh-100">
 
         <?php
-        include "menunav.html";
+        include "menunav.php";
         ?>
 
         <main class="d-flex flex-grow-1 flex-column justify-content-center" style="margin-top:92px; margin-bottom: -100px;">
@@ -291,7 +291,7 @@
                     </div>
                 </section>
 
-                <section id="shoes" class="my-5 pb-5">
+                <section id="shoes" class="mt-5 mb-3 pb-5">
                     <div class="container text-center mt-5 py-5">
                         <h3>Running Shoes</h3>
                         <hr class="mx-auto">
@@ -352,10 +352,85 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- SECCION DE COMENTARIOS -->
+                <section id="comments" class="container text-center mt-5">
+                    <h3>Comentarios</h3>
+                    <hr class="mx-auto">
+                    <div class="comments-list mt-5">
+
+                        <div class="comment">
+                            <div class="user-profile">
+                                <img src="img/user1.jpg" alt="Usuario 1">
+                                <div class="user-info">
+                                    <h5>Juan Cardenas Alvares</h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>¡Gran sitio web! Me encantan los productos. Siempre he sido un apasionado de la moda y este lugar tiene una increíble variedad de ropa y accesorios. ¡Definitivamente volveré a comprar aquí en el futuro!</p>
+                        </div>
+
+                        <div class="comment my-5">
+                            <div class="user-profile">
+                                <img src="img/user2.jpg" alt="Usuario 2">
+                                <div class="user-info">
+                                    <h5>Usuario 2</h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>He estado buscando un lugar confiable para comprar ropa de calidad en línea y finalmente lo encontré. Los productos son increíbles y la atención al cliente es excelente. ¡Gracias por brindar una experiencia de compra tan satisfactoria!</p>
+                        </div>
+
+                        <div class="comment my-5">
+                            <div class="user-profile">
+                                <img src="img/user3.jpg" alt="Usuario 3">
+                                <div class="user-info">
+                                    <h5>Usuario 3</h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Estoy impresionado con la calidad de los productos que ofrecen. Compré un par de zapatos y un vestido, y ambos superaron mis expectativas. Además, el proceso de compra fue muy fácil y la entrega fue puntual. ¡Seguro volveré a comprar aquí!</p>
+                        </div>
+
+
+                        <div class="comment my-5">
+                            <div class="user-profile">
+                                <img src="img/user4.jpg" alt="Usuario 4">
+                                <div class="user-info">
+                                    <h5>Usuario 4</h5>
+                                    <div class="star">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Desde que descubrí este sitio, se ha convertido en mi tienda en línea favorita. La variedad de productos es asombrosa y los precios son muy competitivos. La calidad de los productos es excelente y siempre encuentro lo que necesito. ¡Muy recomendado!</p>
+                        </div>
+
+                    </div>
+                </section>
         </main>
-
-
-
 
         <!-- FOOTER -->
         <footer class="py-5">
