@@ -1,4 +1,8 @@
-
+<?php
+// Obtén el nombre de la página actual a partir de la URL
+$urlpag = $_SERVER['REQUEST_URI'];
+$nombrepag = basename($urlpag);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +14,8 @@
     <link rel="stylesheet" href="CSS/style.css">
     <title></title>
 </head>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top container-fluid px-5">
     <img src="img/logo1.png" alt="">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,10 +25,10 @@
         <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-                <a class="nav-link active" href="index.php">Inicio</a>
+                <a class="nav-link <?php if ($nombrepag === 'index.php') echo 'active'; ?>" href="index.php">Inicio</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" href="shop.php">Productos</a>
+                <a class="nav-link <?php if ($nombrepag === 'shop.php') echo 'active'; ?>" href="shop.php">Productos</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,41 +58,41 @@
                 <i onclick="window.location.href='cart.php';" class="fa-solid fa-bag-shopping"></i>
             </li>
 
-            <?php 
-                session_start();
-                if (isset($_SESSION['loged']) && $_SESSION['loged'] == '1') {
+            <?php
+            session_start();
+            if (isset($_SESSION['loged']) && $_SESSION['loged'] == '1') {
             ?>
-            
-            <li class=" ms-4">
-                <a href="./Controller/logout.php">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                </a>
-            </li>
 
-            <?php 
-                } else {
-            ?>       
-
-            <li class=" ms-4">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#login_Modal">
-                    <i class="fa-solid fa-circle-user useric"></i>
-                </a>
-            </li>
+                <li class=" ms-4">
+                    <a href="./Controller/logout.php">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </a>
+                </li>
 
             <?php
-                }   
+            } else {
             ?>
-            
-            <?php 
+
+                <li class=" ms-4">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#login_Modal">
+                        <i class="fa-solid fa-circle-user useric"></i>
+                    </a>
+                </li>
+
+            <?php
+            }
             ?>
-            
+
+            <?php
+            ?>
+
 
     </div>
 </nav>
 
 <body>
-    <?php 
-        include("Modelo/loginmodal.php");
+    <?php
+    include("Modelo/loginmodal.php");
     ?>
     <script src="JS/bootstrap.bundle.js"></script>
 </body>
