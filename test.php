@@ -1,7 +1,8 @@
 <?php
 include_once('./Modelo/conexion.php');
 
-$sql = "SELECT * FROM producto WHERE id_producto = 5";
+$sql = "SELECT * FROM producto
+inner join estado WHERE id_producto = 5 ";
 
 $listar = $conn->query($sql);
 $result = $listar->fetch_assoc();
