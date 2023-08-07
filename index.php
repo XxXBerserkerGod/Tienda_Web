@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
+
+
+
 <body>
 
     <div class="d-flex flex-column vh-100">
@@ -29,32 +32,35 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="img/banner/1.jpg" class="d-block w-100" alt="..." style="height: 350px;">
+                            <img src="img/sliders/slider1.webp" class="d-block w-100" alt="..." style="height: 350px;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                                <!-- <h5>First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p> -->
+                                <div class="d-flex justify-content-end w-100">
+                                    <button class="btn btn-light w-50">Compra aquí</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="img/banner/2.jpg" class="d-block w-100" alt="..." style="height: 350px;">
+                        <div class=" carousel-item" data-bs-interval="2000">
+                            <img src="img/sliders/slider2.webp" class="d-block w-100" alt="..." style="height: 350px;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                                <!-- <h5>Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p> -->
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="img/banner/parallax.jpg" class="d-block w-100" alt="..." style="height: 350px;">
+                            <img src="img/sliders/slider3.webp  " class="d-block w-100" alt="..." style="height: 350px;">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
+                                <!-- <h5>Third slide label</h5>
+                                <p>Some representative placeholder content for the third slide.</p> -->
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev" style="background-color: transparent;">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next" style="background-color: transparent;">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -358,77 +364,97 @@
                 <section id="comments" class="container text-center mt-5">
                     <h3>Comentarios</h3>
                     <hr class="mx-auto">
-                    <div class="comments-list mt-5">
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="filter: invert(100%);"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="filter: invert(100%);"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="filter: invert(100%);"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active ">
+                                <img src="img/sliders/fondoblanco.png" class="d-block w-100" alt="..." style="height: 350px;" style="color: black;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="container d-flex p-5 ">
+                                        <div class="d-flex justify-content-center mx-5">
+                                            <img src="img/users/user1.png" alt="" style="width:80px; height:80px;">
+                                        </div>
+                                        <div class="text-start me-5">
+                                            <h5>Usuario 1</h5>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="text-dark">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda id impedit recusandae quod quae nesciunt tempore eos molestiae modi sed iure, ullam soluta aut numquam quo tenetur a dolores.
+                                            </p>
+                                        </div>
 
-                        <div class="comment">
-                            <div class="user-profile">
-                                <img src="img/user1.jpg" alt="Usuario 1">
-                                <div class="user-info">
-                                    <h5>Juan Cardenas Alvares</h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/sliders/fondoblanco.png" class="d-block w-100" alt="..." style="height: 350px;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="container d-flex p-5">
+                                        <div class="d-flex justify-content-center mx-5">
+                                            <img src="img/users/user1.png" alt="" style="width:80px; height:80px;">
+                                        </div>
+                                        <div class="text-start me-5">
+                                            <h5>Usuario 2</h5>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="text-dark">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda id impedit recusandae quod quae nesciunt tempore eos molestiae modi sed iure, ullam soluta aut numquam quo tenetur a dolores.
+                                            </p>
+
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <p>¡Gran sitio web! Me encantan los productos. Siempre he sido un apasionado de la moda y este lugar tiene una increíble variedad de ropa y accesorios. ¡Definitivamente volveré a comprar aquí en el futuro!</p>
-                        </div>
+                            <div class="carousel-item">
+                                <img src="img/sliders/fondoblanco.png" class="d-block w-100" alt="..." style="height: 350px;">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="container d-flex p-5">
+                                        <div class="d-flex justify-content-center mx-5">
+                                            <img src="img/users/user1.png" alt="" style="width:80px; height:80px;">
+                                        </div>
+                                        <div class="text-start me-5">
+                                            <h5>Usuario 3</h5>
+                                            <div class="star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <p class="text-dark">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda id impedit recusandae quod quae nesciunt tempore eos molestiae modi sed iure, ullam soluta aut numquam quo tenetur a dolores.
+                                            </p>
 
-                        <div class="comment my-5">
-                            <div class="user-profile">
-                                <img src="img/user2.jpg" alt="Usuario 2">
-                                <div class="user-info">
-                                    <h5>Usuario 2</h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <p>He estado buscando un lugar confiable para comprar ropa de calidad en línea y finalmente lo encontré. Los productos son increíbles y la atención al cliente es excelente. ¡Gracias por brindar una experiencia de compra tan satisfactoria!</p>
                         </div>
-
-                        <div class="comment my-5">
-                            <div class="user-profile">
-                                <img src="img/user3.jpg" alt="Usuario 3">
-                                <div class="user-info">
-                                    <h5>Usuario 3</h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Estoy impresionado con la calidad de los productos que ofrecen. Compré un par de zapatos y un vestido, y ambos superaron mis expectativas. Además, el proceso de compra fue muy fácil y la entrega fue puntual. ¡Seguro volveré a comprar aquí!</p>
-                        </div>
-
-
-                        <div class="comment my-5">
-                            <div class="user-profile">
-                                <img src="img/user4.jpg" alt="Usuario 4">
-                                <div class="user-info">
-                                    <h5>Usuario 4</h5>
-                                    <div class="star">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Desde que descubrí este sitio, se ha convertido en mi tienda en línea favorita. La variedad de productos es asombrosa y los precios son muy competitivos. La calidad de los productos es excelente y siempre encuentro lo que necesito. ¡Muy recomendado!</p>
-                        </div>
-
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="filter: invert(100%) ;background-color: transparent; ">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="filter: invert(100%);background-color: transparent;">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </section>
         </main>

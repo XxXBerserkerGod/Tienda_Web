@@ -17,7 +17,7 @@ $nombrepag = basename($urlpag);
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top container-fluid px-5">
-        <img src="img/logo1.png" alt="">
+        <img src="img/logo1.pn" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i id="bar" class="fa-solid fa-bars"></i></span>
         </button>
