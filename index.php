@@ -1,3 +1,8 @@
+<?php 
+
+include('Modelo/conexion.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -437,6 +442,7 @@
 
         <?php
         include("Modelo/loginmodal.php");
+        include("Modelo/registermodal.php");
         include("footer.php");
         ?>
 

@@ -71,10 +71,16 @@ $nombrepag = basename($urlpag);
                 } else {
                 ?>
 
-                    <li class=" ms-4">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#login_Modal">
-                            <i class="fa-solid fa-circle-user useric"></i>
-                        </a>
+                    <li class="nav-item dropdown ms-4">
+                        <i class="fa-solid fa-circle-user useric nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#login_Modal">Iniciar Sesión</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#register_Modal">Registrarse</a>
+                            </li>
+                        </ul>
                     </li>
 
                 <?php
@@ -86,10 +92,9 @@ $nombrepag = basename($urlpag);
 
     <?php
     include("Modelo/loginmodal.php");
+    include('Modelo/registermodal.php');
     ?>
-
-
-
+    <script src="/JS/bootstrap.bundle.js"></script>
 </body>
 
 </html>
