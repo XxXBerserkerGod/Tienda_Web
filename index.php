@@ -437,14 +437,10 @@ include('Modelo/conexion.php');
                     </div>
                 </section>
         </main>
-
-
-
         <?php
-        include("Modelo/loginmodal.php");
-        include("Modelo/registermodal.php");
         include("footer.php");
         ?>
+        <script src="JS/bootstrap.bundle.js"> </script>
 
 </body>
 

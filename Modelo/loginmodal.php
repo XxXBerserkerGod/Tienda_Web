@@ -24,6 +24,3 @@
         </div>
     </div>
 </div>
-
-
-<script src="JS/bootstrap.bundle.js"></script>

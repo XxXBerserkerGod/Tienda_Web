@@ -1,4 +1,13 @@
 <?php
+include('Modelo/conexion.php');
+session_start();
+
+$sqlcategoria = "SELECT * FROM categoria";
+$categorias = $conn->query($sqlcategoria);
+
+$sqlmarca = "SELECT * FROM marca";
+$marcas = $conn->query($sqlmarca);
+
 // Obtén el nombre de la página actual a partir de la URL
 $urlpag = $_SERVER['REQUEST_URI'];
 $nombrepag = basename($urlpag);
@@ -34,9 +43,15 @@ $nombrepag = basename($urlpag);
                         Categorias
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="#">Categoria 1</a>
-                        </li>
+                        <?php 
+                            while($categoria = $categorias->fetch_assoc()) {                  
+                        ?>
+                            <li>
+                                <a class="dropdown-item" href="/Tienda_Web/shop.php?categoria=<?=$categoria['id_categoria'];?>"><?=$categoria['nombre_categoria'];?></a>
+                            </li>
+                        <?php 
+                            }
+                        ?>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -44,9 +59,15 @@ $nombrepag = basename($urlpag);
                         Marcas
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="#">Marca 1</a>
-                        </li>
+                    <?php 
+                            while($marca = $marcas->fetch_assoc()) {                  
+                        ?>
+                            <li>
+                                <a class="dropdown-item" href="/Tienda_Web/shop.php?marca=<?=$marca['id_marca'];?>"><?=$marca['nombre_marca'];?></a>
+                            </li>
+                        <?php 
+                            }
+                        ?>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -58,7 +79,7 @@ $nombrepag = basename($urlpag);
                 </li>
 
                 <?php
-                session_start();
+                
                 if (isset($_SESSION['loged']) && $_SESSION['loged'] == '1') {
                 ?>
                     <li class=" ms-4">
@@ -94,7 +115,6 @@ $nombrepag = basename($urlpag);
     include("Modelo/loginmodal.php");
     include('Modelo/registermodal.php');
     ?>
-    <script src="/JS/bootstrap.bundle.js"></script>
 </body>
 
 </html>

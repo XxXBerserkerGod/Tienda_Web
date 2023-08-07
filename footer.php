@@ -75,11 +75,7 @@
             </div>
         </div>
     </footer>
-
-
     </div>
-
-    <script src="JS/bootstrap.bundle.js"></script>
 </body>
 
 </html>
