@@ -83,24 +83,28 @@
             <!-- SECCION DE MARCAS  -->
             <section id="new" class="w-100">
                 <div class="row p-0 m-0">
-                    <div class="one col-lg-4 col-md-12 col-12 p-0">
+                    <div class="one col-lg-3 col-md-12 col-12 p-0 m-2">
                         <img class="img-fluid" src="img/new/1.jpg" alt="">
                         <div class="details">
-                            <h2>Extreme Rare Sneakers</h2>
                             <button class="text-uppercase">Shop now</button>
                         </div>
                     </div>
-                    <div class="one col-lg-4 col-md-12 col-12 p-0">
+                    <div class="one col-lg-3 col-md-12 col-12 p-0 m-2">
                         <img class="img-fluid" src="img/new/5.jpg" alt="">
                         <div class="details">
-                            <h2>Awesome Blank Outfit</h2>
                             <button class="text-uppercase">Shop now</button>
                         </div>
                     </div>
-                    <div class="one col-lg-4 col-md-12 col-12 p-0">
+                    <div class="one col-lg-3 col-md-12 col-12 p-0 m-2">
                         <img class="img-fluid" src="img/new/3.jpg" alt="">
                         <div class="details">
-                            <h2>Sportwear Up To 50% Off</h2>
+                            <button class="text-uppercase">Shop now</button>
+                        </div>
+                    </div>
+                    <div class="one col-lg-3 col-md-12 col-12 p-0 m-2">
+                        <img class="img-fluid" src="img/new/1.jpg" alt="">
+                        <div class="details">
+
                             <button class="text-uppercase">Shop now</button>
                         </div>
                     </div>
@@ -362,7 +366,7 @@
 
                 <!-- SECCION DE COMENTARIOS -->
                 <section id="comments" class="container text-center mt-5">
-                    <h3>Comentarios</h3>
+                    <h3>Testimonios</h3>
                     <hr class="mx-auto">
                     <div id="carouselExampleIndicators" class="carousel slide">
                         <div class="carousel-indicators">
@@ -374,12 +378,12 @@
                             <div class="carousel-item active ">
                                 <img src="img/sliders/fondoblanco.png" class="d-block w-100" alt="..." style="height: 350px;" style="color: black;">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <div class="container d-flex p-5 ">
-                                        <div class="d-flex justify-content-center mx-5">
-                                            <img src="img/users/user1.png" alt="" style="width:80px; height:80px;">
+                                    <div class="container d-flex p-2 ">
+                                        <div class="d-flex justify-content-center mx-3">
+                                            <img src="img/users/user1.png" alt="" style="width:70px; height:70px;">
                                         </div>
                                         <div class="text-start me-5">
-                                            <h5>Usuario 1</h5>
+                                            <h5>Carlos Melgarejo Poma</h5>
                                             <div class="star">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -390,6 +394,9 @@
                                             <p class="text-dark">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda id impedit recusandae quod quae nesciunt tempore eos molestiae modi sed iure, ullam soluta aut numquam quo tenetur a dolores.
                                             </p>
+                                        </div>
+                                        <div>
+                                            <img src="img/testimonios/testimonio1.jpg" alt="" style="width: 180px;">
                                         </div>
 
                                     </div>
@@ -399,12 +406,12 @@
                             <div class="carousel-item">
                                 <img src="img/sliders/fondoblanco.png" class="d-block w-100" alt="..." style="height: 350px;">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <div class="container d-flex p-5">
-                                        <div class="d-flex justify-content-center mx-5">
-                                            <img src="img/users/user1.png" alt="" style="width:80px; height:80px;">
+                                    <div class="container d-flex p-2">
+                                        <div class="d-flex justify-content-center mx-3">
+                                            <img src="img/users/user2.png" alt="" style="width:70px; height:70px;">
                                         </div>
                                         <div class="text-start me-5">
-                                            <h5>Usuario 2</h5>
+                                            <h5>Marta Mesa Cardona</h5>
                                             <div class="star">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -415,21 +422,25 @@
                                             <p class="text-dark">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda id impedit recusandae quod quae nesciunt tempore eos molestiae modi sed iure, ullam soluta aut numquam quo tenetur a dolores.
                                             </p>
-
-
                                         </div>
+                                        <div>
+                                            <img src="img/testimonios/testimonio2.jpg" alt="" style="width: 180px;">
+                                        </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <img src="img/sliders/fondoblanco.png" class="d-block w-100" alt="..." style="height: 350px;">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <div class="container d-flex p-5">
-                                        <div class="d-flex justify-content-center mx-5">
-                                            <img src="img/users/user1.png" alt="" style="width:80px; height:80px;">
+                                    <div class="container d-flex p-2">
+                                        <div class="d-flex justify-content-center mx-3">
+                                            <img src="img/users/user3.png" alt="" style="width:70px; height:70px;">
                                         </div>
                                         <div class="text-start me-5">
-                                            <h5>Usuario 3</h5>
+                                            <h5>Pedro Alva Rp</h5>
                                             <div class="star">
                                                 <i class="fas fa-star"></i>
                                                 <i class="fas fa-star"></i>
@@ -440,9 +451,11 @@
                                             <p class="text-dark">
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime assumenda id impedit recusandae quod quae nesciunt tempore eos molestiae modi sed iure, ullam soluta aut numquam quo tenetur a dolores.
                                             </p>
-
-
                                         </div>
+                                        <div>
+                                            <img src="img/testimonios/testimonio3.jpg" alt="" style="width: 180px;">
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
