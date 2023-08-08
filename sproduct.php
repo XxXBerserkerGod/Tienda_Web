@@ -1,13 +1,6 @@
 <?php
-include_once('./Modelo/conexion.php');
+include('Modelo/conexion.php');
 $id = $_GET["id"];
-
-$sql = "SELECT * FROM producto where  id_producto = $id";
-
-$listar = $conn->query($sql);
-
-$row = $listar->fetch_assoc()
-
 ?>
 
 <!DOCTYPE html>
@@ -66,57 +59,77 @@ $row = $listar->fetch_assoc()
     <div class="d-flex flex-column vh-100">
 
         <?php
-        include "menunav.php";
+        include('menunav.php');
+        $sql = "SELECT *
+                FROM producto AS prod INNER JOIN categoria AS cat
+                    ON prod.id_categoria = cat.id_categoria
+                WHERE id_producto = '$id'";
+        $listar = $conn->query($sql);
+        $row = $listar->fetch_assoc();
         ?>
 
         <section class="container sproduct my-5 pt-5">
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-12 col-12">
 
-                    <img class="img-fluid w-100 pb-1" src="<?= $row['img_principal'] ?>" id="MainImg" alt="">
+                    <img class="img-fluid w-100 pb-1" src="<?=$row['img_principal'];?>" id="MainImg" alt="">
 
                     <div class="small-img-group">
                         <div class="small-img-col">
-                            <img src="<?= $row['img_principal'] ?>" width="100%" class="small-img" alt="">
+                            <img src="<?=$row['img_principal']; ?>" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="<?= $row['img_uno'] ?>" width="100%" class="small-img" alt="">
+                            <img src="<?=$row['img_uno']; ?>" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="<?= $row['img_dos'] ?>" width="100%" class="small-img" alt="">
+                            <img src="<?=$row['img_dos']; ?>" width="100%" class="small-img" alt="">
                         </div>
 
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-12">
-                    <h6> <a href="shop.php" class="text-decoration-none text-black">Productos</a> / T-Shirt</h6>
+                    <h6> <a href="shop.php" class="text-decoration-none text-black">Productos</a> / <?=$row['nombre_categoria']?></h6>
                     <h3 class="py-4"><?= $row['nombre_producto'] ?></h3>
                     <h2>S/. <?= $row['precio_producto'] ?></h2>
-                    <select class="my-3">
-                        <option>Select Size</option>
-                        <option>XL</option>
-                        <option>XXL</option>
-                        <option>Small</option>
-                        <option>Large</option>
-                    </select>
+                    <?php 
+                        if ($row['id_categoria'] == 4) {
+                    ?>
+                        <select class="my-3">
+                            <option>Selecciona Talla</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                        </select>
+                    <?php 
+                        }
+                    ?>
                     <input type="number" value="1">
-                    <button class="buy-btn">Add To Cart</button>
-                    <h4 class="mt-5 mb-4">Product Details</h4>
+                    <button class="buy-btn">Agregar al Carrito</button>
+                    <h4 class="mt-5 mb-4">Detalles del Producto</h4>
                     <span><?= $row['descripcion'] ?></span>
 
                 </div>
             </div>
         </section>
 
-        <section id="featured" class="my-5 pb-5">
+        <section id="featured" class="my-1 pb-5">
             <div class="container text-center mt-5 py-5">
-                <h3>Related Products</h3>
+                <h3>Productos Relacionados</h3>
                 <hr class="mx-auto">
             </div>
             <div class="row mx-auto container-fluid">
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/1.jpg" alt="">
+            <?php
+                $idcat = $row['id_categoria'];
+                $sqlrelacionados = "SELECT * FROM producto
+                                    WHERE id_categoria = '$idcat'";
+                $relacionados = $conn->query($sqlrelacionados);
+                while ($relacionado = $relacionados->fetch_assoc()) {
+            ?>
+                <div onclick="window.location.href='sproduct.php?id=<?= $relacionado['id_producto']; ?>';" class="product col-lg-3 col-md-4 col-12 text-center">
+                    <img class="mb-3 img-fluid pimg" src="<?= $relacionado['img_principal']; ?>" style="height: 286.88px;">
                     <div class="star">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -124,49 +137,13 @@ $row = $listar->fetch_assoc()
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <h5 class="p-name">Sport Boots</h5>
-                    <h4 class="p-price">$92.00</h4>
-                    <button class="buy-btn">Buy Now</button>
+                    <h5 class="p-name"><?= $relacionado['nombre_producto']; ?></h5>
+                    <h4 class="p-price">S/. <?= $relacionado['precio_producto']; ?></h4>
+                    <button class="buy-btn">Comprar</button>
                 </div>
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h5 class="p-name">Sport Boots</h5>
-                    <h4 class="p-price">$92.00</h4>
-                    <button class="buy-btn">Buy Now</button>
-                </div>
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h5 class="p-name">Sport Boots</h5>
-                    <h4 class="p-price">$92.00</h4>
-                    <button class="buy-btn">Buy Now</button>
-                </div>
-                <div class="product text-center col-lg-3 col-md-4 col-12">
-                    <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h5 class="p-name">Sport Boots</h5>
-                    <h4 class="p-price">$92.00</h4>
-                    <button class="buy-btn">Buy Now</button>
-                </div>
+            <?php
+            }
+            ?>
             </div>
         </section>
 

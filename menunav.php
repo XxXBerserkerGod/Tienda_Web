@@ -33,7 +33,7 @@ $nombrepag = basename($urlpag);
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link <?php if ($nombrepag === 'index.php') echo 'active'; ?>" href="index.php">Inicio</a>
+                    <a class="nav-link <?php if ($nombrepag === 'index.php' || $nombrepag === 'Tienda_Web') echo 'active'; ?>" href="index.php">Inicio</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link <?php if ($nombrepag === 'shop.php') echo 'active'; ?>" href="shop.php">Productos</a>
@@ -47,7 +47,7 @@ $nombrepag = basename($urlpag);
                             while($categoria = $categorias->fetch_assoc()) {                  
                         ?>
                             <li>
-                                <a class="dropdown-item" href="/Tienda_Web/shop.php?categoria=<?=$categoria['id_categoria'];?>"><?=$categoria['nombre_categoria'];?></a>
+                                <a class="dropdown-item <?php if ($nombrepag === 'shop.php?categoria='.$categoria['id_categoria']) echo 'active'; ?>" href="/Tienda_Web/shop.php?categoria=<?=$categoria['id_categoria'];?>"><?=$categoria['nombre_categoria'];?></a>
                             </li>
                         <?php 
                             }
@@ -63,7 +63,7 @@ $nombrepag = basename($urlpag);
                             while($marca = $marcas->fetch_assoc()) {                  
                         ?>
                             <li>
-                                <a class="dropdown-item" href="/Tienda_Web/shop.php?marca=<?=$marca['id_marca'];?>"><?=$marca['nombre_marca'];?></a>
+                                <a class="dropdown-item <?php if ($nombrepag === 'shop.php?marca='.$marca['id_marca']) echo 'active'; ?>" href="/Tienda_Web/shop.php?marca=<?=$marca['id_marca'];?>"><?=$marca['nombre_marca'];?></a>
                             </li>
                         <?php 
                             }
@@ -81,9 +81,17 @@ $nombrepag = basename($urlpag);
                 <?php
                 
                 if (isset($_SESSION['loged']) && $_SESSION['loged'] == '1') {
+                    $idusuario = $_SESSION['usuario'];
+                    $sqlusuario = "SELECT * FROM usuario
+                                    WHERE id_usu = '$idusuario'";
+                    $usuario = ($conn->query($sqlusuario))->fetch_assoc();
+                    $nombres = $usuario['apellidos_usu'].", ".$usuario['nombres_usu'];
                 ?>
-                    <li class=" ms-4">
-                        <a href="./Controller/logout.php">
+                    <li class="nav-item ms-4">
+                        Bienvenido <?=$nombres;?>
+                    </li>
+                    <li class="nav-item ms-4">
+                        <a class="nav-link" href="./Controller/logout.php">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
                     </li>
