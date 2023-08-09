@@ -11,12 +11,12 @@
 
 <body>
     <?php
-    include("../Administrador/Navbar.php");
+    include("Navbar.php");
     ?>
     <div class="container d-flex  justify-content-center mt-5" style="min-height: 100vh;">
         <div class="row">
             <div class="col text-center">
-                <h1>Bienvenido Administrador</h1>
+                <h2>Bienvenido Administrador: </h2>
                 <p>¡Hola! Como administrador, tienes acceso a todas las funciones del sistema. Utiliza el menú de navegación para administrar los productos, categorías, nombres y/o generar reportes.</p>
             </div>
         </div>
