@@ -1,3 +1,8 @@
+<?php 
+
+include('Modelo/conexion.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -471,13 +476,10 @@
                     </div>
                 </section>
         </main>
-
-
-
         <?php
-        include("Modelo/loginmodal.php");
         include("footer.php");
         ?>
+        <script src="JS/bootstrap.bundle.js"> </script>
 
 </body>
 

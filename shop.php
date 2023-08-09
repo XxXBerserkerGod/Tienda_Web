@@ -1,10 +1,23 @@
 <?php
-include_once('./Modelo/conexion.php');
+include('./Modelo/conexion.php');
 
-$sql = "SELECT * FROM producto";
-
-$listar = $conn->query($sql);
-
+if (isset($_GET['categoria']) || isset($_GET['marca'])) {
+    if (isset($_GET['categoria'])) {
+        $categoria = $_GET['categoria'];
+        $sql = "SELECT * FROM producto
+                WHERE id_categoria = '$categoria'";
+        $listar = $conn->query($sql);            
+    } 
+    if (isset($_GET['marca'])) {
+        $marca = $_GET['marca'];
+        $sql = "SELECT * FROM producto
+                WHERE id_marca = '$marca'";
+        $listar = $conn->query($sql);
+    }
+} else {
+    $sql = "SELECT * FROM producto";
+    $listar = $conn->query($sql);
+}
 
 ?>
 

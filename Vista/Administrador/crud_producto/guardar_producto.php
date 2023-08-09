@@ -6,7 +6,6 @@ $precio_producto = $_POST["precio_producto"];
 $stock = $_POST["stock"];
 
 //directorio destino
-
 $directorio_destino = "../../../img/Productos";
 //img principal
 $img_principal_name = $_FILES['img_principal']['name'];

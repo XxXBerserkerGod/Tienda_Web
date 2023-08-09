@@ -13,6 +13,7 @@ $usuario = ($conn->query($sql))->fetch_assoc();
 if ($usuario['user_usu'] == $user && $usuario['password'] == $pass) {
     session_start();
     $_SESSION['loged'] = 1;
+    $_SESSION['usuario'] = $usuario['id_usu'];
     switch($usuario['id_tipo_usuario']) {
         case 1:
             $_SESSION['tipo'] = 1;
