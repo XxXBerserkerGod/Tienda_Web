@@ -167,15 +167,16 @@ $listar5 = $conn->query($sql5);
           tallaSelect.setAttribute('disabled', 'true');
           fcaducidadselect.setAttribute('required', 'true');
         } else if (['Cuidado Personal'].includes(selectedCategoria)) {
-          fcaducidadselect.value="";
+          fcaducidadselect.value = "";
           colorselect.setAttribute('disabled', 'true');
           tallaSelect.setAttribute('disabled', 'true');
           fcaducidadselect.setAttribute('disabled', 'true');
         } else if (['Ropa'].includes(selectedCategoria)) {
-          fcaducidadselect.value="";
+          fcaducidadselect.value = "";
           fcaducidadselect.setAttribute('disabled', 'true');
         }
       }
+
       function gestionarEstado() {
         const selectestado = estadoSelect.options[estadoSelect.selectedIndex].text;
         if (['Oferta'].includes(selectestado)) {
@@ -191,6 +192,7 @@ $listar5 = $conn->query($sql5);
       estadoSelect.addEventListener('change', gestionarEstado);
     </script>
 
-    
+
 </body>
+
 </html>
