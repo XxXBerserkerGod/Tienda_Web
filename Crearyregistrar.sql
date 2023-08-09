@@ -4,8 +4,6 @@ USE Perfumeria_Janet;
 
 DROP TABLE IF EXISTS `categoria`;
 
-DROP TABLE IF EXISTS `categoria`;
-
 CREATE TABLE
     IF NOT EXISTS `categoria` (
         `id_categoria` int NOT NULL AUTO_INCREMENT,
