@@ -137,7 +137,60 @@ $listar5 = $conn->query($sql5);
       </div>
     </div>
 
+    <script>
+      const estadoSelect = document.getElementById('codigo_estado');
+      const categoriaSelect = document.getElementById('id_categoria');
 
+      const tallaSelect = document.getElementById('id_talla');
+      const fcaducidadselect = document.getElementById('fecha_caducidad');
+      const colorselect = document.getElementById('id_color');
+      const pofertaselect = document.getElementById('precio_oferta');
+
+      //se ejectura al iniciar la carga del modal
+      pofertaselect.removeAttribute('disabled');
+      tallaSelect.setAttribute('disabled', 'true');
+      colorselect.removeAttribute('disabled');
+      fcaducidadselect.removeAttribute('disabled');
+      pofertaselect.setAttribute('required', 'true');
+
+      //funciones para gestionar
+      function gestionarOpcionesPorCategoria() {
+        const selectedCategoria = categoriaSelect.options[categoriaSelect.selectedIndex].text;
+        tallaSelect.removeAttribute('disabled');
+        fcaducidadselect.removeAttribute('disabled');
+        colorselect.removeAttribute('disabled');
+        if (['Maquillaje'].includes(selectedCategoria)) {
+          tallaSelect.setAttribute('disabled', 'true');
+          fcaducidadselect.setAttribute('required', 'true');
+        } else if (['Perfume'].includes(selectedCategoria)) {
+          colorselect.setAttribute('disabled', 'true');
+          tallaSelect.setAttribute('disabled', 'true');
+          fcaducidadselect.setAttribute('required', 'true');
+        } else if (['Cuidado Personal'].includes(selectedCategoria)) {
+          fcaducidadselect.value = "";
+          colorselect.setAttribute('disabled', 'true');
+          tallaSelect.setAttribute('disabled', 'true');
+          fcaducidadselect.setAttribute('disabled', 'true');
+        } else if (['Ropa'].includes(selectedCategoria)) {
+          fcaducidadselect.value = "";
+          fcaducidadselect.setAttribute('disabled', 'true');
+        }
+      }
+
+      function gestionarEstado() {
+        const selectestado = estadoSelect.options[estadoSelect.selectedIndex].text;
+        if (['Oferta'].includes(selectestado)) {
+          pofertaselect.removeAttribute('disabled');
+          pofertaselect.setAttribute('required', 'true');
+
+        } else {
+          pofertaselect.value = "";
+          pofertaselect.setAttribute('disabled', 'true');
+        }
+      }
+      categoriaSelect.addEventListener('change', gestionarOpcionesPorCategoria);
+      estadoSelect.addEventListener('change', gestionarEstado);
+    </script>
 
 
 </body>
