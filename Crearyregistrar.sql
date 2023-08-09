@@ -6,12 +6,11 @@ DROP TABLE IF EXISTS `categoria`;
 
 CREATE TABLE
     IF NOT EXISTS `categoria` (
-        `id_categoria` int NOT NULL AUTO_INCREMENT,
+        `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_categoria` varchar(250) NOT NULL,
         `img_catg` varchar(250) DEFAULT NULL,
-        `estado_categoria` varchar(255) DEFAULT NULL,
         PRIMARY KEY (`id_categoria`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 5 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 5 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -23,15 +22,9 @@ INSERT INTO
     `categoria` (
         `id_categoria`,
         `nombre_categoria`,
-        `img_catg`,
-        `estado_categoria`
+        `img_catg`
     )
-VALUES (1, 'Maquillaje', NULL, NULL), (2, 'Perfume', NULL, NULL), (
-        3,
-        'Cuidado Personal',
-        NULL,
-        NULL
-    ), (4, 'Joyeria', NULL, NULL);
+VALUES (1, 'Maquillaje', NULL), (2, 'Perfume', NULL), (3, 'Cuidado Personal', NULL), (4, 'Ropa', NULL);
 
 -- --------------------------------------------------------
 
@@ -45,10 +38,10 @@ DROP TABLE IF EXISTS `color`;
 
 CREATE TABLE
     IF NOT EXISTS `color` (
-        `id_color` int NOT NULL AUTO_INCREMENT,
+        `id_color` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_color` varchar(250) NOT NULL,
         PRIMARY KEY (`id_color`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 7 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 7 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -75,14 +68,14 @@ CREATE TABLE
         `codigo_comprobante` char(6) NOT NULL,
         `fecha_comprobante` datetime NOT NULL,
         `total_pagar` decimal(10, 2) NOT NULL,
-        `id_usu` int NOT NULL,
-        `id_TipoPago` int NOT NULL,
-        `id_tipo_compb` int NOT NULL,
+        `id_usu` int(11) NOT NULL,
+        `id_TipoPago` int(11) NOT NULL,
+        `id_tipo_compb` int(11) NOT NULL,
         PRIMARY KEY (`codigo_comprobante`),
         KEY `id_usu` (`id_usu`),
         KEY `id_TipoPago` (`id_TipoPago`),
         KEY `id_tipo_compb` (`id_tipo_compb`)
-    ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -176,13 +169,13 @@ DROP TABLE IF EXISTS `detalle_comprobante`;
 
 CREATE TABLE
     IF NOT EXISTS `detalle_comprobante` (
-        `cantidad_dc` int NOT NULL,
+        `cantidad_dc` int(11) NOT NULL,
         `subtotal_dc` decimal(10, 2) NOT NULL,
-        `id_producto` int NOT NULL,
+        `id_producto` int(11) NOT NULL,
         `codigo_comprobante` char(6) NOT NULL,
         KEY `id_producto` (`id_producto`),
         KEY `codigo_comprobante` (`codigo_comprobante`)
-    ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -211,13 +204,13 @@ DROP TABLE IF EXISTS `detalle_orden`;
 
 CREATE TABLE
     IF NOT EXISTS `detalle_orden` (
-        `id_orden` int NOT NULL,
-        `cantidad` int NOT NULL,
+        `id_orden` int(11) NOT NULL,
+        `cantidad` int(11) NOT NULL,
         `subtotal` decimal(10, 2) NOT NULL,
-        `id_producto` int NOT NULL,
+        `id_producto` int(11) NOT NULL,
         KEY `id_orden` (`id_orden`),
         KEY `id_producto` (`id_producto`)
-    ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -246,10 +239,10 @@ DROP TABLE IF EXISTS `estado_orden`;
 
 CREATE TABLE
     IF NOT EXISTS `estado_orden` (
-        `codigo_estado` int NOT NULL AUTO_INCREMENT,
+        `codigo_estado` int(11) NOT NULL AUTO_INCREMENT,
         `descripcion` varchar(250) NOT NULL,
         PRIMARY KEY (`codigo_estado`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -276,10 +269,10 @@ DROP TABLE IF EXISTS `estado_producto`;
 
 CREATE TABLE
     IF NOT EXISTS `estado_producto` (
-        `codigo_estado` int NOT NULL AUTO_INCREMENT,
+        `codigo_estado` int(11) NOT NULL AUTO_INCREMENT,
         `descripcion` varchar(250) NOT NULL,
         PRIMARY KEY (`codigo_estado`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 5 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 6 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -292,7 +285,7 @@ INSERT INTO
         `codigo_estado`,
         `descripcion`
     )
-VALUES (1, 'Oferta'), (2, 'Bueno'), (3, 'Deteriorado'), (4, 'Caducado');
+VALUES (1, 'Oferta'), (2, 'Bueno'), (3, 'Deteriorado'), (4, 'Caducado'), (5, 'Inactivo');
 
 -- --------------------------------------------------------
 
@@ -306,11 +299,11 @@ DROP TABLE IF EXISTS `imagen`;
 
 CREATE TABLE
     IF NOT EXISTS `imagen` (
-        `id_img` int NOT NULL AUTO_INCREMENT,
+        `id_img` int(11) NOT NULL AUTO_INCREMENT,
         `ruta_img` varchar(250) NOT NULL,
         `uso` varchar(250) NOT NULL,
         PRIMARY KEY (`id_img`)
-    ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -324,12 +317,11 @@ DROP TABLE IF EXISTS `marca`;
 
 CREATE TABLE
     IF NOT EXISTS `marca` (
-        `id_marca` int NOT NULL AUTO_INCREMENT,
+        `id_marca` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_marca` varchar(250) NOT NULL,
         `img_marca` varchar(250) DEFAULT NULL,
-        `esta_marca` varchar(255) DEFAULT NULL,
         PRIMARY KEY (`id_marca`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 9 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 9 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -341,10 +333,9 @@ INSERT INTO
     `marca` (
         `id_marca`,
         `nombre_marca`,
-        `img_marca`,
-        `esta_marca`
+        `img_marca`
     )
-VALUES (1, 'CYZONE', NULL, NULL), (2, 'AVON', NULL, NULL), (3, 'ESIKA', NULL, NULL), (4, 'LBEL', NULL, NULL), (5, 'Channel', NULL, NULL), (6, 'Tobaco', NULL, NULL), (7, 'Versace', NULL, NULL), (8, 'Paco Rabanne', NULL, NULL);
+VALUES (1, 'CYZONE', NULL), (2, 'AVON', NULL), (3, 'ESIKA', NULL), (4, 'LBEL', NULL), (5, 'Channel', NULL), (6, 'Tobaco', NULL), (7, 'Versace', NULL), (8, 'Paco Rabanne', NULL);
 
 -- --------------------------------------------------------
 
@@ -358,15 +349,15 @@ DROP TABLE IF EXISTS `orden`;
 
 CREATE TABLE
     IF NOT EXISTS `orden` (
-        `id_orden` int NOT NULL AUTO_INCREMENT,
+        `id_orden` int(11) NOT NULL AUTO_INCREMENT,
         `fecha_orden` datetime NOT NULL,
         `total_pagar` decimal(10, 2) NOT NULL,
-        `id_usu` int NOT NULL,
-        `codigo_estado` int NOT NULL,
+        `id_usu` int(11) NOT NULL,
+        `codigo_estado` int(11) NOT NULL,
         PRIMARY KEY (`id_orden`),
         KEY `id_usu` (`id_usu`),
         KEY `codigo_estado` (`codigo_estado`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 10 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 10 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -450,27 +441,27 @@ DROP TABLE IF EXISTS `producto`;
 
 CREATE TABLE
     IF NOT EXISTS `producto` (
-        `id_producto` int NOT NULL AUTO_INCREMENT,
+        `id_producto` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_producto` varchar(250) NOT NULL,
         `precio_producto` decimal(10, 2) NOT NULL,
-        `stock` int NOT NULL,
+        `stock` int(11) NOT NULL,
         `img_principal` varchar(250) NOT NULL,
         `img_uno` varchar(250) NOT NULL,
         `img_dos` varchar(250) NOT NULL,
-        `codigo_estado` int NOT NULL,
-        `id_marca` int NOT NULL,
-        `id_categoria` int NOT NULL,
+        `codigo_estado` int(11) NOT NULL,
+        `id_marca` int(11) NOT NULL,
+        `id_categoria` int(11) NOT NULL,
         `precio_oferta` decimal(10, 2) DEFAULT NULL,
         `fecha_caducidad` date DEFAULT NULL,
-        `id_talla` int DEFAULT NULL,
-        `id_color` int DEFAULT NULL,
-        `descripcion` text,
+        `id_talla` int(11) DEFAULT NULL,
+        `id_color` int(11) DEFAULT NULL,
+        `descripcion` text DEFAULT NULL,
         PRIMARY KEY (`id_producto`),
         KEY `codigo_estado` (`codigo_estado`),
         KEY `id_marca` (`id_marca`),
         KEY `id_talla` (`id_talla`),
         KEY `id_color` (`id_color`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 11 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 12 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -549,7 +540,7 @@ VALUES (
         'Perfume Kalos',
         '32.00',
         13,
-        '/Tienda_Web/img/Productos/PerfH_Kalos1.webp',
+        './img/Productos/PerfH_Kalos1.webp',
         './img/Productos/PerfH_Kalos2.webp',
         './img/Productos/PerfH_Kalos3.webp',
         2,
@@ -565,7 +556,7 @@ VALUES (
         'Perfume Kalos Tech',
         '25.00',
         10,
-        '/Tienda_Web/img/Productos/PerfH_KalosTech1.webp',
+        './img/Productos/PerfH_KalosTech1.webp',
         './img/Productos/PerfH_KalosTech2.webp',
         './img/Productos/PerfH_KalosTech3.webp',
         2,
@@ -581,7 +572,7 @@ VALUES (
         'Perfume Magnat',
         '28.00',
         10,
-        '/Tienda_Web/img/Productos/PerfH_Magnat1.webp',
+        './img/Productos/PerfH_Magnat1.webp',
         './img/Productos/PerfH_Magnat2.webp',
         './img/Productos/PerfH_Magnat3.webp',
         2,
@@ -597,7 +588,7 @@ VALUES (
         'Perfume Pulso',
         '44.00',
         11,
-        '/Tienda_Web/img/Productos/PerfH_PulsoAbsolute1.webp',
+        './img/Productos/PerfH_PulsoAbsolute1.webp',
         './img/Productos/PerfH_PulsoAbsolute2.webp',
         './img/Productos/PerfH_PulsoAbsolute3.webp',
         2,
@@ -632,7 +623,7 @@ VALUES (
         'imgpr',
         'img1',
         'img2',
-        5,
+        2,
         2,
         2,
         NULL,
@@ -642,20 +633,36 @@ VALUES (
         'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus.  asdasdas'
     ), (
         10,
-        'p12321',
-        '12312.00',
-        1212,
-        '/Tienda_Web/img/Productos/p1212.webp',
-        '/Tienda_Web/img/Productos/p1212.webp',
-        '/Tienda_Web/img/Productos/p1212.webp',
-        1,
-        1,
-        1,
+        'p11212',
         '12.00',
-        '0000-00-00',
+        12,
+        '../../../img/Productos/user2.png',
+        '../../../img/Productos/user2.png',
+        '../../../img/Productos/slidercomentarios.png',
+        1,
+        1,
+        3,
+        '1212.00',
+        NULL,
+        NULL,
+        NULL,
+        'asdaasd'
+    ), (
+        11,
+        'p121331',
+        '1312.00',
+        121,
+        '../../../img/Productos/user2.png',
+        '../../../img/Productos/slidercomentarios.png',
+        '../../../img/Productos/user2.png',
+        1,
+        1,
+        1,
+        '1212.00',
+        '2023-08-31',
         NULL,
         1,
-        'dasadssad'
+        'dsaasd'
     );
 
 -- --------------------------------------------------------
@@ -670,10 +677,10 @@ DROP TABLE IF EXISTS `talla`;
 
 CREATE TABLE
     IF NOT EXISTS `talla` (
-        `id_talla` int NOT NULL AUTO_INCREMENT,
+        `id_talla` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_talla` varchar(250) NOT NULL,
         PRIMARY KEY (`id_talla`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 6 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 6 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -697,10 +704,10 @@ DROP TABLE IF EXISTS `tipo_comprobante`;
 
 CREATE TABLE
     IF NOT EXISTS `tipo_comprobante` (
-        `id_tipo_compb` int NOT NULL AUTO_INCREMENT,
+        `id_tipo_compb` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_tip_compb` varchar(250) NOT NULL,
         PRIMARY KEY (`id_tipo_compb`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -727,10 +734,10 @@ DROP TABLE IF EXISTS `tipo_pago`;
 
 CREATE TABLE
     IF NOT EXISTS `tipo_pago` (
-        `id_tipoPago` int NOT NULL AUTO_INCREMENT,
+        `id_tipoPago` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_tipoPago` varchar(250) NOT NULL,
         PRIMARY KEY (`id_tipoPago`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 6 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 6 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -757,10 +764,10 @@ DROP TABLE IF EXISTS `tipo_usuario`;
 
 CREATE TABLE
     IF NOT EXISTS `tipo_usuario` (
-        `id_tipo_usuario` int NOT NULL AUTO_INCREMENT,
+        `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_tipo_usuario` varchar(250) NOT NULL,
         PRIMARY KEY (`id_tipo_usuario`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 3 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -792,7 +799,7 @@ CREATE TABLE
         `Provincia` varchar(250) NOT NULL,
         `Distrito` varchar(250) NOT NULL,
         PRIMARY KEY (`id_ubigeo`)
-    ) ENGINE = MyISAM DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -851,7 +858,7 @@ DROP TABLE IF EXISTS `usuario`;
 
 CREATE TABLE
     IF NOT EXISTS `usuario` (
-        `id_usu` int NOT NULL AUTO_INCREMENT,
+        `id_usu` int(11) NOT NULL AUTO_INCREMENT,
         `user_usu` varchar(250) NOT NULL,
         `password` varchar(250) NOT NULL,
         `nombres_usu` varchar(250) NOT NULL,
@@ -861,12 +868,12 @@ CREATE TABLE
         `correo_usu` varchar(250) NOT NULL,
         `direccion` varchar(250) NOT NULL,
         `id_ubigeo` char(6) NOT NULL,
-        `id_tipo_usuario` int NOT NULL,
+        `id_tipo_usuario` int(11) NOT NULL,
         `ruc` char(11) DEFAULT NULL,
         PRIMARY KEY (`id_usu`),
         KEY `id_ubigeo` (`id_ubigeo`),
         KEY `id_tipo_usuario` (`id_tipo_usuario`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 11 DEFAULT CHARSET = latin1;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 11 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
