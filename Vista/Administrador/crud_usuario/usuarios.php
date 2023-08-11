@@ -22,7 +22,7 @@ include('./paginacion_usuario.php');
             <h3 class="d-flex justify-content-center">Sección Usuarios</h3>
             <div class="row justify-content-between align-items-center">
                 <div class="col-auto mt-3">
-                    <label for="buscar" class="mr-2 mb-2 ">Buscar:</label>
+                    <label for="buscar" class="mr-2 mb-2 ">Filtrar:</label>
                     <input type="text" id="ip_filtrar" class="form-control border-primary" placeholder="Ingrese el usuario">
                 </div>
             </div>

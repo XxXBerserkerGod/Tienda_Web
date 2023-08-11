@@ -7,8 +7,7 @@ if (isset($_POST['filtro'])) {
     $sql_filtrar = "SELECT *, p.descripcion as desc_prod, ep.descripcion as n_estado 
     FROM producto p 
     INNER JOIN estado_producto ep ON p.codigo_estado = ep.codigo_estado
-    WHERE p.id_producto = '$filtro'";
-    
+    WHERE p.id_producto LIKE '$filtro%'";
     $resultado_filtrado = $conn->query($sql_filtrar);
 
     if ($resultado_filtrado->num_rows > 0) {

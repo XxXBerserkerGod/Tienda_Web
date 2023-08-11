@@ -7,7 +7,7 @@ if (isset($_POST['filtro'])){
     from ubigeo ub inner join usuario u ON
     ub.id_ubigeo=u.id_ubigeo inner join tipo_usuario tu ON
     u.id_tipo_usuario=tu.id_tipo_usuario
-    where user_usu = '$filtro' and u.id_tipo_usuario=1";
+    WHERE u.user_usu LIKE '$filtro%' and u.id_tipo_usuario=1";
     $resultado_filtrado = $conn->query($sql_filtrar);
 
     if ($resultado_filtrado->num_rows > 0) {
