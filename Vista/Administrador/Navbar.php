@@ -21,7 +21,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink1">
                             <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_producto/Productos.php">Producto</a></li>
                             <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_usuario/usuarios.php">Usuario</a></li>
-                            <li><a class="dropdown-item" href="#">Categoria</a></li>
+                            <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_categoria/Categoria.php">Categoria</a></li>
                             <li><a class="dropdown-item" href="#">Marca</a></li>
                         </ul>
                     </li>
