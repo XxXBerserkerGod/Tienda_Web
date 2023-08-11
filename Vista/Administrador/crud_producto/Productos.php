@@ -42,7 +42,7 @@ include('./paginacion_producto.php');
                     <tr>
                         <td class="text-center">Id</td>
                         <td class="text-center">Nombre</td>
-                        <td class="text-center">DescripciÃ³n</td>
+                        <td class="text-center">Descripción</td>
                         <td class="text-center">Precio Unitario</td>
                         <td class="text-center">Stock</td>
                         <td class="text-center">Imagen Principal</td>
@@ -62,22 +62,22 @@ include('./paginacion_producto.php');
                     <?php
                     while ($rowp = $resultado_paginacion->fetch_assoc()) { ?>
                         <tr>
-                            <td><?php echo $rowp['id_producto']; ?></td>
-                            <td><?php echo $rowp['nombre_producto']; ?></td>
-                            <td><?php echo substr($rowp['desc_prod'], 0, 20); ?></td>
-                            <td><?php echo $rowp['precio_producto']; ?></td>
-                            <td><?php echo $rowp['stock']; ?></td>
-                            <td> <img src=" <?php echo $rowp["img_principal"]; ?>" alt="img Principal" style="width: 70px; height: 70px;"></td>
-                            <td> <img src="<?php echo $rowp["img_uno"]; ?>" alt="img Sub 1 " style="width: 70px; height: 70px;"></td>
-                            <td> <img src=" <?php echo $rowp["img_dos"]; ?>" alt="img Sub 2" style="width: 70px; height: 70px;"></td>
-                            <td><?php echo $rowp['n_estado']; ?></td>
-                            <td><?php echo $rowp['id_marca']; ?></td>
-                            <td><?php echo $rowp['id_categoria']; ?></td>
-                            <td><?php echo ($rowp['precio_oferta'] !== null) ? $rowp['precio_oferta'] : "---"; ?></td>
-                            <td><?php echo ($rowp['fecha_caducidad'] !== null) ? $rowp['fecha_caducidad'] : "---"; ?></td>
-                            <td><?php echo ($rowp['id_talla'] !== null) ? $rowp['id_talla'] : "---"; ?></td>
-                            <td><?php echo ($rowp['id_color'] !== null) ? $rowp['id_color'] : "---"; ?></td>
-                            <td>
+                            <td class="text-center"><?php echo $rowp['id_producto']; ?></td>
+                            <td class="text-center"><?php echo $rowp['nombre_producto']; ?></td>
+                            <td class="text-center"><?php echo substr($rowp['desc_prod'], 0, 20); ?></td>
+                            <td class="text-center"><?php echo $rowp['precio_producto']; ?></td>
+                            <td class="text-center"><?php echo $rowp['stock']; ?></td>
+                            <td class="text-center"> <img src=" <?php echo $rowp["img_principal"]; ?>" alt="img Principal" style="width: 70px; height: 70px;"></td>
+                            <td class="text-center"> <img src="<?php echo $rowp["img_uno"]; ?>" alt="img Sub 1 " style="width: 70px; height: 70px;"></td>
+                            <td class="text-center"> <img src=" <?php echo $rowp["img_dos"]; ?>" alt="img Sub 2" style="width: 70px; height: 70px;"></td>
+                            <td class="text-center"><?php echo $rowp['n_estado']; ?></td>
+                            <td class="text-center"><?php echo $rowp['id_marca']; ?></td>
+                            <td class="text-center"><?php echo $rowp['id_categoria']; ?></td>
+                            <td class="text-center"><?php echo ($rowp['precio_oferta'] !== null) ? $rowp['precio_oferta'] : "---"; ?></td>
+                            <td class="text-center"><?php echo ($rowp['fecha_caducidad'] !== null) ? $rowp['fecha_caducidad'] : "---"; ?></td>
+                            <td class="text-center"><?php echo ($rowp['id_talla'] !== null) ? $rowp['id_talla'] : "---"; ?></td>
+                            <td class="text-center"><?php echo ($rowp['id_color'] !== null) ? $rowp['id_color'] : "---"; ?></td>
+                            <td class="text-center">
                                 <?php $pk = $rowp['id_producto']; ?>
                                 <a href="#" class="btn btn-warning btn-editar" data-bs-toggle="modal" data-bs-target="#editarmodprod" data-idprod="<?php echo $pk; ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
                                 <a href="#" class="btn btn-danger btn-eliminar" data-bs-toggle="modal" data-bs-target="#eliminarmodprod" data-idprod="<?php echo $pk; ?>"><i class="fa-solid fa-trash"></i></a>
@@ -159,8 +159,6 @@ include('./paginacion_producto.php');
     </script>
     <script>
         $(document).ready(function() {
-            // ... (código anterior) ...
-
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
 
@@ -178,8 +176,6 @@ include('./paginacion_producto.php');
                     }
                 });
             });
-
-            // ... (código anterior) ...
         });
     </script>
 
