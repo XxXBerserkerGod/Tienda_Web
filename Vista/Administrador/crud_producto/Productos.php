@@ -2,11 +2,6 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-$sqlpro = "select *,p.descripcion as desc_prod ,ep.descripcion as n_estado 
-from producto p inner join estado_producto ep on
-        p.codigo_estado=ep.codigo_estado
-order by p.id_producto asc";
-$resultadox = $conn->query($sqlpro);
 include('./paginacion_producto.php');
 ?>
 
@@ -104,9 +99,8 @@ include('./paginacion_producto.php');
     ?>
     <script>
         $(document).ready(function() {
-            $(".btn-editar").click(function() {
+            $("#tablaProductos").on("click", ".btn-editar", function(){
                 var idprod = $(this).data("idprod");
-
                 $.ajax({
                     url: "obtener_producto.php",
                     method: "POST",
@@ -134,7 +128,7 @@ include('./paginacion_producto.php');
                     }
                 });
             });
-            $(".btn-eliminar").click(function() {
+            $("#tablaProductos").on("click", ".btn-eliminar", function(){
                 var idprod = $(this).data("idprod");
                 console.log(idprod);
                 $.ajax({
@@ -153,12 +147,7 @@ include('./paginacion_producto.php');
                     }
                 });
 
-            })
-
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
+            });
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
 
@@ -176,6 +165,7 @@ include('./paginacion_producto.php');
                     }
                 });
             });
+
         });
     </script>
 

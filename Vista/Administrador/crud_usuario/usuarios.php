@@ -2,13 +2,6 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-$sqlusu = "SELECT *
-from ubigeo ub inner join usuario u ON
-ub.id_ubigeo=u.id_ubigeo inner join tipo_usuario tu ON
-u.id_tipo_usuario=tu.id_tipo_usuario
-where u.id_tipo_usuario=1 
-order by id_usu asc ;";
-$resultadousu = $conn->query($sqlusu);
 include('./paginacion_usuario.php');
 ?>
 
@@ -72,9 +65,12 @@ include('./paginacion_usuario.php');
                             <td class="text-center">
                                 <?php $pk = $rowp['id_usu']; ?>
                                 <a href="#" class="btn btn-danger btn-eliminar  " data-bs-toggle="modal" data-bs-target="#eliminarmodusuario" data-idusu="<?php echo $pk; ?>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="#" class="btn btn-primary btn-activar  " data-bs-toggle="modal" data-bs-target="#activarmodusuario" data-idusu="<?php echo $pk; ?>"><i class="fa-solid fa-user-plus fa-fade" style="color: #e5ebf5;"></i></a>
+
                             </td>
                         </tr>
-                    <?php }?>
+                    <?php } ?>
+                    </ul>
                 </tbody>
             </table>
             <ul class="pagination justify-content-center m-0">
@@ -82,6 +78,7 @@ include('./paginacion_usuario.php');
                     <li class="page-item <?php if ($i == $pagina_actual) echo 'active'; ?>"><a class="page-link" href="?pagina=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                 <?php } ?>
             </ul>
+
         </div>
     </section>
 
@@ -89,10 +86,11 @@ include('./paginacion_usuario.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <?php
     include './eliminarmodusuario.php';
+    include './activarmodusuario.php';
     ?>
     <script>
         $(document).ready(function() {
-            $(".btn-eliminar").click(function() {
+            $("#tablausuarios").on("click", ".btn-eliminar", function() {
                 var idusu = $(this).data("idusu");
                 console.log(idusu);
                 $.ajax({
@@ -111,12 +109,27 @@ include('./paginacion_usuario.php');
                     }
                 });
 
-            })
 
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
+            });
+            $("#tablausuarios").on("click", ".btn-activar", function() {
+                var idusu = $(this).data("idusu");
+                console.log(idusu);
+                $.ajax({
+                    url: "obtener_usuario.php",
+                    method: "POST",
+                    data: {
+                        idusu: idusu
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        $("#activarmodusuario .modal-title").text("Habilitar Usuario: " + response.user_usu);
+                        $("#activarmodusuario #idusu").val(response.id_usu);
+                    },
+                    error: function() {
+                        alert("Error al obtener los datos");
+                    }
+                });
+            });
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
                 $.ajax({
@@ -132,12 +145,10 @@ include('./paginacion_usuario.php');
                         alert("Error al filtrar los datos.");
                     }
                 });
-            });
+            })
+
         });
     </script>
-
-
-
 </body>
 
 </html>

@@ -1,6 +1,14 @@
 <?php 
 // Paginación
-$elementos_por_pagina = 7;
+$sqlusu = "SELECT *
+from ubigeo ub inner join usuario u ON
+ub.id_ubigeo=u.id_ubigeo inner join tipo_usuario tu ON
+u.id_tipo_usuario=tu.id_tipo_usuario
+where u.id_tipo_usuario=1 
+order by id_usu asc ;";
+$resultadousu = $conn->query($sqlusu);
+
+$elementos_por_pagina = 8;
 $total_registros = $resultadousu->num_rows;
 $total_paginas = ceil($total_registros / $elementos_por_pagina);
 
@@ -15,6 +23,7 @@ $sql_paginacion = "SELECT *
 from ubigeo ub inner join usuario u ON
 ub.id_ubigeo=u.id_ubigeo inner join tipo_usuario tu ON
 u.id_tipo_usuario=tu.id_tipo_usuario
+where u.id_tipo_usuario=1  
 order by id_usu asc
 LIMIT $elementos_por_pagina OFFSET $offset;";
 $resultado_paginacion_usu = $conn->query($sql_paginacion);

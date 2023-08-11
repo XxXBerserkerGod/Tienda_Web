@@ -1,16 +1,6 @@
 <?php
 include("../../../Modelo/conexion.php");
-
-//cuando el input de buscar no tenga un valor definido
-$sqlpro = "select *,p.descripcion as desc_prod ,ep.descripcion as n_estado 
-from producto p inner join estado_producto ep on
-        p.codigo_estado=ep.codigo_estado
-order by p.id_producto asc";
-$resultadox = $conn->query($sqlpro);
-//--------------------
-
 include('./paginacion_producto.php');
-
 if (isset($_POST['filtro'])) {
     $filtro = $_POST['filtro'];
     
@@ -22,10 +12,8 @@ if (isset($_POST['filtro'])) {
     $resultado_filtrado = $conn->query($sql_filtrar);
 
     if ($resultado_filtrado->num_rows > 0) {
-        $output = ''; // Variable para acumular la salida HTML
-
+        $output = '';
         while ($rowp = $resultado_filtrado->fetch_assoc()) {
-            // Genera el HTML para cada fila
             $output .= '<tr>';
             $output .= '<td class="text-center">' . $rowp['id_producto'] . '</td>';
             $output .= '<td class="text-center">' . $rowp['nombre_producto'] . '</td>';
@@ -48,13 +36,10 @@ if (isset($_POST['filtro'])) {
             $output .= '</td>';
             $output .= '</tr>';
         }
-
-        // Imprime la salida acumulada
         echo $output;
     } else {
-        $output = ''; // Variable para acumular la salida HTML
+        $output = ''; 
         while ($rowp = $resultado_paginacion->fetch_assoc()) {
-            // Genera el HTML para cada fila
             $output .= '<tr>';
             $output .= '<td class="text-center">' . $rowp['id_producto'] . '</td>';
             $output .= '<td class="text-center">' . $rowp['nombre_producto'] . '</td>';

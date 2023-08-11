@@ -1,4 +1,9 @@
 <?php 
+$sqlpro = "select *,p.descripcion as desc_prod ,ep.descripcion as n_estado 
+from producto p inner join estado_producto ep on
+        p.codigo_estado=ep.codigo_estado
+order by p.id_producto asc";
+$resultadox = $conn->query($sqlpro);
 // Paginación
 $elementos_por_pagina = 10;
 $total_registros = $resultadox->num_rows;
