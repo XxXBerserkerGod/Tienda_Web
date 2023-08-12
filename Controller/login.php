@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include("../Modelo/conexion.php");
 
@@ -14,18 +14,18 @@ if ($usuario['user_usu'] == $user && $usuario['password'] == $pass) {
     session_start();
     $_SESSION['loged'] = 1;
     $_SESSION['usuario'] = $usuario['id_usu'];
-    switch($usuario['id_tipo_usuario']) {
+    switch ($usuario['id_tipo_usuario']) {
         case 1:
             $_SESSION['tipo'] = 1;
+            mysqli_close($conn);
+            header('location:../index.php');
             break;
         case 2:
             $_SESSION['tipo'] = 2;
+            mysqli_close($conn);
+            header('location:../Vista/Administrador/Inicio.php');
             break;
     }
-    mysqli_close($conn);
-    header('location:../index.php');
 } else {
     header('location:../index.php');
 }
-
-?>

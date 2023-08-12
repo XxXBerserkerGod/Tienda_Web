@@ -9,6 +9,7 @@ CREATE TABLE
         `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_categoria` varchar(250) NOT NULL,
         `img_catg` varchar(250) DEFAULT NULL,
+        `estado_categoria` int(11) DEFAULT NULL,
         PRIMARY KEY (`id_categoria`)
     ) ENGINE = MyISAM AUTO_INCREMENT = 5 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
@@ -22,9 +23,15 @@ INSERT INTO
     `categoria` (
         `id_categoria`,
         `nombre_categoria`,
-        `img_catg`
+        `img_catg`,
+        `estado_categoria`
     )
-VALUES (1, 'Maquillaje', NULL), (2, 'Perfume', NULL), (3, 'Cuidado Personal', NULL), (4, 'Ropa', NULL);
+VALUES (1, 'Maquillaje', NULL, NULL), (2, 'Perfume', NULL, NULL), (
+        3,
+        'Cuidado Personal',
+        NULL,
+        NULL
+    ), (4, 'Ropa', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -320,6 +327,7 @@ CREATE TABLE
         `id_marca` int(11) NOT NULL AUTO_INCREMENT,
         `nombre_marca` varchar(250) NOT NULL,
         `img_marca` varchar(250) DEFAULT NULL,
+        `estado_marca` int(11) DEFAULT NULL,
         PRIMARY KEY (`id_marca`)
     ) ENGINE = MyISAM AUTO_INCREMENT = 9 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
@@ -333,9 +341,10 @@ INSERT INTO
     `marca` (
         `id_marca`,
         `nombre_marca`,
-        `img_marca`
+        `img_marca`,
+        `estado_marca`
     )
-VALUES (1, 'CYZONE', NULL), (2, 'AVON', NULL), (3, 'ESIKA', NULL), (4, 'LBEL', NULL), (5, 'Channel', NULL), (6, 'Tobaco', NULL), (7, 'Versace', NULL), (8, 'Paco Rabanne', NULL);
+VALUES (1, 'CYZONE', NULL, NULL), (2, 'AVON', NULL, NULL), (3, 'ESIKA', NULL, NULL), (4, 'LBEL', NULL, NULL), (5, 'Channel', NULL, NULL), (6, 'Tobaco', NULL, NULL), (7, 'Versace', NULL, NULL), (8, 'Paco Rabanne', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -461,7 +470,7 @@ CREATE TABLE
         KEY `id_marca` (`id_marca`),
         KEY `id_talla` (`id_talla`),
         KEY `id_color` (`id_color`)
-    ) ENGINE = MyISAM AUTO_INCREMENT = 12 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
+    ) ENGINE = MyISAM AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1 COLLATE = latin1_swedish_ci;
 
 --
 
@@ -488,181 +497,37 @@ INSERT INTO
         `descripcion`
     )
 VALUES (
-        1,
-        'Labial satinado',
-        '25.00',
-        10,
-        'imgpr',
-        'img1',
-        'img2',
-        2,
-        1,
-        1,
-        NULL,
-        NULL,
-        NULL,
-        1,
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus. '
-    ), (
-        2,
-        'Labial Colorfix',
-        '25.00',
-        12,
-        'imgpr',
-        'img1',
-        'img2',
-        2,
-        1,
-        1,
-        NULL,
-        NULL,
-        NULL,
-        2,
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus. '
-    ), (
-        3,
-        'Corrector facial',
-        '28.00',
-        10,
-        'imgpr',
-        'img1',
-        'img2',
-        2,
-        2,
-        1,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus. '
-    ), (
-        4,
-        'Perfume Kalos',
-        '32.00',
         13,
-        './img/Productos/PerfH_Kalos1.webp',
-        './img/Productos/PerfH_Kalos2.webp',
-        './img/Productos/PerfH_Kalos3.webp',
-        2,
-        5,
-        2,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Lorem ipsuasdas m dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus. '
-    ), (
-        5,
-        'Perfume Kalos Tech',
-        '25.00',
-        10,
-        './img/Productos/PerfH_KalosTech1.webp',
-        './img/Productos/PerfH_KalosTech2.webp',
-        './img/Productos/PerfH_KalosTech3.webp',
-        2,
-        6,
-        2,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Perfume para el pto de moises olor a flores para el marico'
-    ), (
-        6,
-        'Perfume Magnat',
-        '28.00',
-        10,
-        './img/Productos/PerfH_Magnat1.webp',
-        './img/Productos/PerfH_Magnat2.webp',
-        './img/Productos/PerfH_Magnat3.webp',
-        2,
-        1,
-        2,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus. '
-    ), (
-        7,
-        'Perfume Pulso',
-        '44.00',
-        11,
-        './img/Productos/PerfH_PulsoAbsolute1.webp',
-        './img/Productos/PerfH_PulsoAbsolute2.webp',
-        './img/Productos/PerfH_PulsoAbsolute3.webp',
-        2,
-        7,
-        2,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus. \n'
-    ), (
-        8,
-        'Perfume Paco Rabanne',
-        '25.00',
-        10,
-        'imgpr',
-        'img1',
-        'img2',
-        2,
-        8,
-        2,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Nestor pisado '
-    ), (
-        9,
-        'Perfume Rayo-Macuin',
-        '100.00',
-        10,
-        'imgpr',
-        'img1',
-        'img2',
-        2,
-        2,
-        2,
-        NULL,
-        NULL,
-        NULL,
-        NULL,
-        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente repellendus in pariatur voluptate vero error praesentium saepe? Rem deserunt non sint recusandae, aliquam cumque ea veniam tempora voluptates fugiat minus.  asdasdas'
-    ), (
-        10,
-        'p11212',
+        'Desodorante roll on',
         '12.00',
-        12,
-        '../../../img/Productos/user2.png',
-        '../../../img/Productos/user2.png',
-        '../../../img/Productos/slidercomentarios.png',
-        1,
-        1,
+        20,
+        '/Tienda_Web/img/Productos/Cuidado Personal/desodorante_rollon_1.webp',
+        '/Tienda_Web/img/Productos/Cuidado Personal/desodorante_rollon_2.webp',
+        '/Tienda_Web/img/Productos/Cuidado Personal/desodorante_rollon_3.webp',
+        2,
+        4,
         3,
-        '1212.00',
+        NULL,
+        '2025-10-12',
         NULL,
         NULL,
-        NULL,
-        'asdaasd'
+        'Desodorante par mujer'
     ), (
-        11,
-        'p121331',
-        '1312.00',
-        121,
-        '../../../img/Productos/user2.png',
-        '../../../img/Productos/slidercomentarios.png',
-        '../../../img/Productos/user2.png',
-        1,
-        1,
-        1,
-        '1212.00',
-        '2023-08-31',
+        12,
+        'Crema para manos y uÃ±as',
+        '25.00',
+        10,
+        '/Tienda_Web/img/Productos/Cuidado Personal/crema_manos_u_1.webp',
+        '/Tienda_Web/img/Productos/Cuidado Personal/crema_manos_u_2.webp',
+        '/Tienda_Web/img/Productos/Cuidado Personal/crema_manos_u_3.webp',
+        2,
+        3,
+        3,
         NULL,
-        1,
-        'dsaasd'
+        '2024-12-12',
+        NULL,
+        NULL,
+        'Crema para manos para mujeres '
     );
 
 -- --------------------------------------------------------
@@ -870,6 +735,7 @@ CREATE TABLE
         `id_ubigeo` char(6) NOT NULL,
         `id_tipo_usuario` int(11) NOT NULL,
         `ruc` char(11) DEFAULT NULL,
+        `estado_usu` int(11) DEFAULT NULL,
         PRIMARY KEY (`id_usu`),
         KEY `id_ubigeo` (`id_ubigeo`),
         KEY `id_tipo_usuario` (`id_tipo_usuario`)
@@ -894,7 +760,8 @@ INSERT INTO
         `direccion`,
         `id_ubigeo`,
         `id_tipo_usuario`,
-        `ruc`
+        `ruc`,
+        `estado_usu`
     )
 VALUES (
         1,
@@ -908,7 +775,8 @@ VALUES (
         'Jr Lima 1123',
         '150806',
         1,
-        '20567489234'
+        '20567489234',
+        NULL
     ), (
         2,
         'usu2',
@@ -921,7 +789,8 @@ VALUES (
         'Jr Lima 1111',
         '150802',
         1,
-        '10987654321'
+        '10987654321',
+        NULL
     ), (
         3,
         'usu3',
@@ -934,7 +803,8 @@ VALUES (
         'Jr Lima 1342',
         '150803',
         1,
-        '40891235678'
+        '40891235678',
+        NULL
     ), (
         4,
         'usu4',
@@ -947,7 +817,8 @@ VALUES (
         'Jr Primavera 1356',
         '150806',
         1,
-        '50236789104'
+        '50236789104',
+        NULL
     ), (
         5,
         'usu5',
@@ -960,7 +831,8 @@ VALUES (
         'Jr Never 4643',
         '150801',
         1,
-        '30987124568'
+        '30987124568',
+        NULL
     ), (
         6,
         'usu6',
@@ -973,6 +845,7 @@ VALUES (
         'Jr Pascal 1356',
         '150804',
         1,
+        NULL,
         NULL
     ), (
         7,
@@ -986,6 +859,7 @@ VALUES (
         'Jr Primavera 4321',
         '150802',
         1,
+        NULL,
         NULL
     ), (
         8,
@@ -999,6 +873,7 @@ VALUES (
         'Jr Vidal 5341',
         '150802',
         1,
+        NULL,
         NULL
     ), (
         9,
@@ -1012,6 +887,7 @@ VALUES (
         'Jr renacimiento 5342',
         '150805',
         1,
+        NULL,
         NULL
     ), (
         10,
@@ -1025,5 +901,6 @@ VALUES (
         'Jr Lima 1123',
         '150806',
         2,
+        NULL,
         NULL
     );
