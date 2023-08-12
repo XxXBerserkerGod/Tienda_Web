@@ -8,7 +8,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/Tienda_Web/Vista/Administrador/Inicio.php"><img src="/Tienda_Web/img/logo1.png" alt="" class="me-3" style="width: 120px; height: 44px;"></a>
+            <a class="navbar-brand" href="/Tienda_Web/Vista/Administrador/Inicio.php"><img src="/Tienda_Web/img/logo1.webp" alt="" class="me-3" style="width: 65px; height: 55px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,7 +22,7 @@
                             <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_producto/Productos.php">Producto</a></li>
                             <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_usuario/usuarios.php">Usuario</a></li>
                             <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_categoria/Categoria.php">Categoria</a></li>
-                            <li><a class="dropdown-item" href="#">Marca</a></li>
+                            <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/crud_marca/Marca.php">Marca</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

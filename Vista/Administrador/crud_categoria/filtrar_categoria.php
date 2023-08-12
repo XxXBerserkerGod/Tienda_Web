@@ -3,12 +3,10 @@ include("../../../Modelo/conexion.php");
 include('./paginacion_categoria.php');
 if (isset($_POST['filtro'])) {
     $filtro = $_POST['filtro'];
-    
     $sql_filtrar = "SELECT *
     from categoria
     WHERE nombre_categoria LIKE '$filtro%'";
     $resultado_filtrado = $conn->query($sql_filtrar);
-
     if ($resultado_filtrado->num_rows > 0) {
         $output = '';
         while ($rowp = $resultado_filtrado->fetch_assoc()) {

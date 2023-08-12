@@ -2,9 +2,8 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-include('./paginacion_categoria.php');
+include('./paginacion_marca.php');
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,14 +41,14 @@ include('./paginacion_categoria.php');
                 </thead>
                 <tbody id="tablaMarca">
                     <?php
-                    while ($rowp = $resultado_paginacion_cat->fetch_assoc()) { ?>
+                    while ($rowp = $resultado_paginacion_marca->fetch_assoc()) { ?>
                         <tr>
                             <td class="text-center"><?php echo $rowp['id_marca']; ?></td>
                             <td class="text-center"><?php echo $rowp['nombre_marca']; ?></td>
                             <td class="text-center"> <img src="<?php echo $rowp['img_marca']  ?>" alt="img categoria" style="width: 70px; height: 70px;"></td>
-                            <td class="text-center"><?php echo $rowp['estado_categoria']; ?></td>
+                            <td class="text-center"><?php echo $rowp['estado_marca']; ?></td>
                             <td class="text-center">
-                                <?php $pk = $rowp['id_categoria']; ?>
+                                <?php $pk = $rowp['id_marca']; ?>
                                 <a href="#" class="btn btn-warning btn-editar" data-bs-toggle="modal" data-bs-target="#editarmodmarca" data-idmarca="<?php echo $pk; ?>"> <i class="fa-solid fa-pen-to-square"></i></a>
                                 <a href="#" class="btn btn-danger btn-eliminar" data-bs-toggle="modal" data-bs-target="#eliminarmodmarca" data-idmarca="<?php echo $pk; ?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
@@ -85,9 +84,9 @@ include('./paginacion_categoria.php');
                     },
                     dataType: "json",
                     success: function(response) {
-                        $("#editarmodmarca .modal-title").text("Editar Categoria: " + response.nombre_categoria);
-                        $("#editarmodmarca #idcat_e").val(response.id_categoria);
-                        $("#editarmodmarca #nombre_categoria_e").val(response.nombre_categoria);
+                        $("#editarmodmarca .modal-title").text("Editar Marca : " + response.nombre_marca);
+                        $("#editarmodmarca #idcat_e").val(response.id_marca);
+                        $("#editarmodmarca #nombre_marca_e").val(response.nombre_marca);
                     },
                     error: function() {
                         alert("Error al obtener los datos .");
@@ -97,15 +96,15 @@ include('./paginacion_categoria.php');
             $("#tablaMarca").on("click", ".btn-eliminar", function(){
                 var idmarca = $(this).data("idmarca");
                 $.ajax({
-                    url: "obtener_categoria.php",
+                    url: "obtener_marca.php",
                     method: "POST",
                     data: {
-                        idcat: idcat
+                        idmarca: idmarca
                     },
                     dataType: "json",
                     success: function(response) {
-                        $("#eliminarmodmarca .modal-title").text("Eliminar Categoria: " + response.nombre_categoria);
-                        $("#eliminarmodmarca #idcat").val(response.id_categoria);
+                        $("#eliminarmodmarca .modal-title").text("Eliminar Marca: " + response.nombre_marca);
+                        $("#eliminarmodmarca #idmarca").val(response.id_marca);
                     },
                     error: function() {
                         alert("Error al obtener los datos");
@@ -116,13 +115,13 @@ include('./paginacion_categoria.php');
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
                 $.ajax({
-                    url: "filtrar_categoria.php",
+                    url: "filtrar_marca.php",
                     method: "POST",
                     data: {
                         filtro: filtro
                     },
                     success: function(response) {
-                        $("#tablaCategoria").html(response);
+                        $("#tablaMarca").html(response);
                     },
                     error: function() {
                         alert("Error al filtrar los datos.");

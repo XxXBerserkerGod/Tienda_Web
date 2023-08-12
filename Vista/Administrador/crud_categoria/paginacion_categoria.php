@@ -5,7 +5,7 @@ from categoria
 order by id_categoria  asc ;";
 $resultadocat = $conn->query($sqlcat);
 
-$elementos_por_pagina = 8;
+$elementos_por_pagina = 10;
 $total_registros = $resultadocat->num_rows;
 $total_paginas = ceil($total_registros / $elementos_por_pagina);
 

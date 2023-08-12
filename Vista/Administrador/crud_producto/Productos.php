@@ -24,7 +24,7 @@ include('./paginacion_producto.php');
             <div class="row justify-content-between align-items-center">
                 <div class="col-auto mt-3">
                     <label for="buscar" class="mr-2 mb-2 ">Filtrar:</label>
-                    <input type="text" id="ip_filtrar" class="form-control border-primary" placeholder="Ingrese el id del producto">
+                    <input type="text" id="ip_filtrar" class="form-control border-primary" placeholder="Ingrese el nombre ">
                 </div>
                 <div class="col-auto mt-3">
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarmodprod">
@@ -62,9 +62,9 @@ include('./paginacion_producto.php');
                             <td class="text-center"><?php echo substr($rowp['desc_prod'], 0, 20); ?></td>
                             <td class="text-center"><?php echo $rowp['precio_producto']; ?></td>
                             <td class="text-center"><?php echo $rowp['stock']; ?></td>
-                            <td class="text-center"> <img src=" <?php echo $rowp["img_principal"]; ?>" alt="img Principal" style="width: 70px; height: 70px;"></td>
+                            <td class="text-center"> <img src="<?php echo $rowp["img_principal"]; ?>" alt="img Principal" style="width: 70px; height: 70px;"></td>
                             <td class="text-center"> <img src="<?php echo $rowp["img_uno"]; ?>" alt="img Sub 1 " style="width: 70px; height: 70px;"></td>
-                            <td class="text-center"> <img src=" <?php echo $rowp["img_dos"]; ?>" alt="img Sub 2" style="width: 70px; height: 70px;"></td>
+                            <td class="text-center"> <img src="<?php echo $rowp["img_dos"]; ?>" alt="img Sub 2" style="width: 70px; height: 70px;"></td>
                             <td class="text-center"><?php echo $rowp['n_estado']; ?></td>
                             <td class="text-center"><?php echo $rowp['id_marca']; ?></td>
                             <td class="text-center"><?php echo $rowp['id_categoria']; ?></td>

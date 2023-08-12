@@ -2,7 +2,6 @@
 include("../../../Modelo/conexion.php");
 $nombre_marca = $_POST["nombre_marca"];
 $estado_marca = 1;
-
 //directorio destino
 $directorio_destino = "../../../img/Marcas";
 //img principal
