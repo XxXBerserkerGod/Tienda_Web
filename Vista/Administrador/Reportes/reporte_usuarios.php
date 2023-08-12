@@ -19,8 +19,11 @@ $contenido = '<!DOCTYPE html>
     <title>Reporte de Usuarios</title>
     <style>
       /* Estilos para la alineación y diseño */
+<<<<<<< HEAD
    
 
+=======
+>>>>>>> ModifiMoises
       .header {
         display: flex;
         justify-content: space-between;
