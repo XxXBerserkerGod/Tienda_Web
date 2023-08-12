@@ -82,7 +82,31 @@ $nombrepag = basename($urlpag);
                 </li>
                 <li class="nav-item">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <i onclick="window.location.href='cart.php';" class="fa-solid fa-bag-shopping"></i>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <table id="lista-carrito" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div class="d-flex flex-column p-2">
+
+                            <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block mb-2">Vaciar Carrito</a>
+                            <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                Compra</a>
+                        </div>
+                    </ul>
                 </li>
 
                 <?php
@@ -130,6 +154,8 @@ $nombrepag = basename($urlpag);
     include("Modelo/loginmodal.php");
     include('Modelo/registermodal.php');
     ?>
+
+
 </body>
 
 </html>

@@ -117,7 +117,7 @@ include('Modelo/conexion.php');
 
             <section id="featured" class="my-5 pb-5">
                 <div class="container text-center mt-5 py-5">
-                    <h3>Productos destacados</h3>
+                    <h3>Productos en oferta</h3>
                     <hr class="mx-auto">
                     <p>Aquí puede ver nuestros nuevos productos a un precio justo en Bazar Perfumeria Janet</p>
                 </div>

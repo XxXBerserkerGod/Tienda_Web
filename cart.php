@@ -28,8 +28,8 @@
                 <hr>
             </section>
 
-            <section id="cart-container" class="container my-5">
-                <table width="100%">
+            <section id="carrito" class="container my-5 ">
+                <table class="lista-carrito" width="100%">
                     <thead>
                         <tr>
                             <td>Remove</td>

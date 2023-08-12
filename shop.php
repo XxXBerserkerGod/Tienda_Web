@@ -6,8 +6,8 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
         $categoria = $_GET['categoria'];
         $sql = "SELECT * FROM producto
                 WHERE id_categoria = '$categoria'";
-        $listar = $conn->query($sql);            
-    } 
+        $listar = $conn->query($sql);
+    }
     if (isset($_GET['marca'])) {
         $marca = $_GET['marca'];
         $sql = "SELECT * FROM producto
@@ -78,8 +78,8 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
                 while ($row = $listar->fetch_assoc()) {
 
                 ?>
-                    <div onclick="window.location.href='sproduct.php?id=<?= $row['id_producto']; ?>';" class="product col-lg-3 col-md-4 col-12 text-center">
-                        <img class="mb-3 img-fluid pimg" src="<?= $row['img_principal']; ?>" style="height: 286.88px;">
+                    <div class="col-lg-3 col-md-4 col-12 text-center lista-productos">
+                        <img onclick="window.location.href='sproduct.php?id=<?= $row['id_producto']; ?>';" class="product mb-3 img-fluid pimg" src="<?= $row['img_principal']; ?>" style="height: 286.88px;">
                         <div class="star">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
