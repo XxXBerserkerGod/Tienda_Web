@@ -5,31 +5,49 @@ $descripcion = $_POST["descripcion"];
 $precio_producto = $_POST["precio_producto"];
 $stock = $_POST["stock"];
 
-//directorio destino
+$codigo_estado = $_POST["codigo_estado"];
+$id_marca = $_POST["id_marca"];
+$id_categoria = $_POST["id_categoria"];
 
-$directorio_destino = "../../../img/Productos";
+//directorio destino
+//1=Maquillaje,2=Perfumes,3=Cuidado Personal,4=Ropa
+$directorio_destino = "";
+$Ruta_Abs = "";
+if ($id_categoria == 1) {
+    $directorio_destino = "../../../img/Productos/Maquillaje";
+    $Ruta_Abs = "/Tienda_Web/img/Productos/Maquillaje";
+} else if ($id_categoria == 2) {
+    $directorio_destino = "../../../img/Productos/Perfumes";
+    $Ruta_Abs = "/Tienda_Web/img/Productos/Perfumes";
+} else if ($id_categoria == 3) {
+    $directorio_destino = "../../../img/Productos/Cuidado Personal";
+    $Ruta_Abs = "/Tienda_Web/img/Productos/Cuidado Personal";
+} else if ($id_categoria == 4) {
+    $directorio_destino = "../../../img/Productos/Ropa";
+    $Ruta_Abs = "/Tienda_Web/img/Productos/Ropa";
+} else {
+    $directorio_destino = "../../../img/Productos";
+    $Ruta_Abs = "/Tienda_Web/img/Productos";
+}
 //img principal
 $img_principal_name = $_FILES['img_principal']['name'];
 $img_principal_RI = $_FILES['img_principal']['tmp_name'];
 $ruta_destinoprinc = $directorio_destino . '/' . $img_principal_name;
-$rdp_Absoluta = "/Tienda_Web/img/Productos" . '/' . $img_principal_name;
+$rdp_Absoluta = $Ruta_Abs . '/' . $img_principal_name;
 move_uploaded_file($img_principal_RI, $ruta_destinoprinc);
 //Sub imagen 1
 $img_uno_name = $_FILES['img_uno']['name'];
 $img_uno_RI = $_FILES['img_uno']['tmp_name'];
 $ruta_destinos1 = $directorio_destino . '/' . $img_uno_name;
-$rds1_Absoluta = "/Tienda_Web/img/Productos" . '/' . $img_uno_name;
+$rds1_Absoluta = $Ruta_Abs . '/' . $img_uno_name;
 move_uploaded_file($img_uno_RI, $ruta_destinos1);
 //sub imagen 2
 $img_dos_name = $_FILES['img_dos']['name'];
 $img_dos_RI = $_FILES['img_dos']['tmp_name'];
 $ruta_destinos2 = $directorio_destino . '/' . $img_dos_name;
-$rds2_Absoluta = "/Tienda_Web/img/Productos" . '/' . $img_dos_name;
+$rds2_Absoluta = $Ruta_Abs . '/' . $img_dos_name;
 move_uploaded_file($img_dos_RI, $ruta_destinos2);
 //------
-$codigo_estado = $_POST["codigo_estado"];
-$id_marca = $_POST["id_marca"];
-$id_categoria = $_POST["id_categoria"];
 
 $precio_oferta = isset($_POST['precio_oferta']) ? $_POST['precio_oferta'] : null;
 $fecha_caducidad = isset($_POST['fecha_caducidad']) ? $_POST['fecha_caducidad'] : null;
