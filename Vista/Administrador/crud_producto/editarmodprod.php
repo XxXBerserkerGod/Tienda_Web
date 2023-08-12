@@ -35,7 +35,7 @@ $listar5 = $conn->query($sql5);
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="editar_producto.php" method="post" enctype="multipart/form-data">
+          <form action="/Tienda_Web/Controller/Administrador/crud_producto/editar_producto.php" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="mb-3">
@@ -183,15 +183,27 @@ $listar5 = $conn->query($sql5);
 
         colorselect2.setAttribute('required', 'true');
         tallaSelect2.setAttribute('required', 'true');
-      }
+      };
+
       
-      const selectestado2 = estadoSelect2.options[estadoSelect2.selectedIndex].text;
-      console.log(selectestado2);
-      if (selectestado2 == "Oferta") {
-        pofertaselect2.setAttribute('required', 'true');
+      const selectedOption2 = estadoSelect2.options[estadoSelect2.selectedIndex];
+      if (selectedOption2) {
+        const selectestado2 = selectedOption2.text;
+        if (selectestado2 === "Oferta") {
+          console.log("llegó oferta");
+          pofertaselect2.setAttribute('required', 'true');
+        } else {
+          console.log("llegó a otro estado");
+          pofertaselect2.setAttribute('disabled', 'true');
+        }
       } else {
+        console.log("No hay ninguna opción seleccionada");
+        estadoSelect2.setAttribute('required', 'true');
         pofertaselect2.setAttribute('disabled', 'true');
       }
+
+
+
       //funciones para gestionar
       function gestionarOpcionesPorCategoria2() {
         const selectedCategoria2 = categoriaSelect2.options[categoriaSelect2.selectedIndex].text;

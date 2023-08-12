@@ -7,7 +7,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="activar_usuario.php" method="post" enctype="multipart/form-data">
+                    <form action="/Tienda_Web/Controller/Administrador/crud_usuario/activar_usuario.php" method="post" enctype="multipart/form-data">
                         <input type="text" class="form-control" id="idusu" name="idusu" hidden>
                         <button type="submit" class="btn btn-primary">Habilitar</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>

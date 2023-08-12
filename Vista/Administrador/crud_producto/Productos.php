@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-include('./paginacion_producto.php');
+include('../../../Controller/Administrador/crud_producto/paginacion_producto.php');
 ?>
 
 <head>
@@ -102,7 +102,7 @@ include('./paginacion_producto.php');
             $("#tablaProductos").on("click", ".btn-editar", function(){
                 var idprod = $(this).data("idprod");
                 $.ajax({
-                    url: "obtener_producto.php",
+                    url: "../../../Controller/Administrador/crud_producto/obtener_producto.php",
                     method: "POST",
                     data: {
                         idprod: idprod
@@ -132,7 +132,7 @@ include('./paginacion_producto.php');
                 var idprod = $(this).data("idprod");
                 console.log(idprod);
                 $.ajax({
-                    url: "obtener_producto.php",
+                    url: "../../../Controller/Administrador/crud_producto/obtener_producto.php",
                     method: "POST",
                     data: {
                         idprod: idprod
@@ -152,7 +152,7 @@ include('./paginacion_producto.php');
                 var filtro = $(this).val();
 
                 $.ajax({
-                    url: "filtrar_productos.php",
+                    url: "../../../Controller/Administrador/crud_producto/filtrar_productos.php",
                     method: "POST",
                     data: {
                         filtro: filtro

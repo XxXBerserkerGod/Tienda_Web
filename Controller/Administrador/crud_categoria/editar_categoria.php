@@ -13,16 +13,14 @@ if (!empty($img_principal_name)) {
     move_uploaded_file($img_principal_RI, $ruta_destinoprinc);
 }
 
-
 $sql = "UPDATE  categoria SET nombre_categoria = '$nombre_categoria', estado_categoria = 1";
 
 if (!empty($img_principal_name)) {
     $sql .= ", img_catg = '$rdp_Absoluta'";
 }
 
-
 $sql .=" WHERE id_categoria  = $id_categoria";
 
 $conn->query($sql);
-header('location:Categoria.php');
+header('location:../../../Vista/Administrador/crud_categoria/Categoria.php');
 ?>

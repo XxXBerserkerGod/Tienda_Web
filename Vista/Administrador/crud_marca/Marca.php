@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-include('./paginacion_marca.php');
+include('../../../Controller/Administrador/crud_marca/paginacion_marca.php');
 ?>
 <head>
     <meta charset="UTF-8">
@@ -77,7 +77,7 @@ include('./paginacion_marca.php');
             $("#tablaMarca").on("click", ".btn-editar", function(){
                 var idmarca = $(this).data("idmarca");
                 $.ajax({
-                    url: "obtener_marca.php",
+                    url: "../../../Controller/Administrador/crud_marca/obtener_marca.php",
                     method: "POST",
                     data: {
                         idmarca: idmarca
@@ -96,7 +96,7 @@ include('./paginacion_marca.php');
             $("#tablaMarca").on("click", ".btn-eliminar", function(){
                 var idmarca = $(this).data("idmarca");
                 $.ajax({
-                    url: "obtener_marca.php",
+                    url: "../../../Controller/Administrador/crud_marca/obtener_marca.php",
                     method: "POST",
                     data: {
                         idmarca: idmarca
@@ -115,7 +115,7 @@ include('./paginacion_marca.php');
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
                 $.ajax({
-                    url: "filtrar_marca.php",
+                    url: "../../../Controller/Administrador/crud_marca/filtrar_marca.php",
                     method: "POST",
                     data: {
                         filtro: filtro

@@ -35,7 +35,7 @@ $listar5 = $conn->query($sql5);
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="guardar_producto.php" method="post" enctype="multipart/form-data">
+          <form action="/Tienda_Web/Controller/Administrador/crud_producto/guardar_producto.php" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="mb-3">

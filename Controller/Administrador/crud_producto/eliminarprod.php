@@ -5,4 +5,4 @@ $sql = "UPDATE producto SET codigo_estado= 5
         WHERE id_producto  = $id_producto";
 $conn->query($sql);
 echo $id_producto;
-header('location:Productos.php');
+header('location:../../../Vista/Administrador/crud_producto/Productos.php');

@@ -21,4 +21,4 @@ if (!empty($img_principal_name)) {
 $sql .=" WHERE id_marca   = $id_marca";
 
 $conn->query($sql);
-header('location:Marca.php');
+header('location:../../../Vista/Administrador/crud_marca/Marca.php');

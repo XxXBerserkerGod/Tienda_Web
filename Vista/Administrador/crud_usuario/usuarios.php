@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-include('./paginacion_usuario.php');
+include('../../../Controller/Administrador/crud_usuario/paginacion_usuario.php');
 ?>
 
 <head>
@@ -94,7 +94,7 @@ include('./paginacion_usuario.php');
                 var idusu = $(this).data("idusu");
                 console.log(idusu);
                 $.ajax({
-                    url: "obtener_usuario.php",
+                    url: "../../../Controller/Administrador/crud_usuario/obtener_usuario.php",
                     method: "POST",
                     data: {
                         idusu: idusu
@@ -115,7 +115,7 @@ include('./paginacion_usuario.php');
                 var idusu = $(this).data("idusu");
                 console.log(idusu);
                 $.ajax({
-                    url: "obtener_usuario.php",
+                    url: "../../../Controller/Administrador/crud_usuario/obtener_usuario.php",
                     method: "POST",
                     data: {
                         idusu: idusu
@@ -133,7 +133,7 @@ include('./paginacion_usuario.php');
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
                 $.ajax({
-                    url: "filtrar_usuarios.php",
+                    url: "../../../Controller/Administrador/crud_usuario/filtrar_usuarios.php",
                     method: "POST",
                     data: {
                         filtro: filtro

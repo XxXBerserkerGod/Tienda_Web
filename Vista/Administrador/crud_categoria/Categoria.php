@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 include("../../../Modelo/conexion.php");
-include('./paginacion_categoria.php');
+include('../../../Controller/Administrador/crud_categoria/paginacion_categoria.php');
 ?>
 
 <head>
@@ -80,7 +80,7 @@ include('./paginacion_categoria.php');
             $("#tablaCategoria").on("click", ".btn-editar", function(){
                 var idcat = $(this).data("idcat");
                 $.ajax({
-                    url: "obtener_categoria.php",
+                    url: "../../../Controller/Administrador/crud_categoria/obtener_categoria.php",
                     method: "POST",
                     data: {
                         idcat: idcat
@@ -100,7 +100,7 @@ include('./paginacion_categoria.php');
                 var idcat = $(this).data("idcat");
                 console.log(idcat);
                 $.ajax({
-                    url: "obtener_categoria.php",
+                    url: "../../../Controller/Administrador/crud_categoria/obtener_categoria.php",
                     method: "POST",
                     data: {
                         idcat: idcat
@@ -119,7 +119,7 @@ include('./paginacion_categoria.php');
             $("#ip_filtrar").on("input", function() {
                 var filtro = $(this).val();
                 $.ajax({
-                    url: "filtrar_categoria.php",
+                    url: "../../../Controller/Administrador/crud_categoria/filtrar_categoria.php",
                     method: "POST",
                     data: {
                         filtro: filtro

@@ -7,7 +7,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="editar_categoria.php" method="post" enctype="multipart/form-data">
+                    <form action="/Tienda_Web/Controller/Administrador/crud_categoria/editar_categoria.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="idcat_e" name="idcat_e" hidden>
                             <label class="form-label">Nombre</label>

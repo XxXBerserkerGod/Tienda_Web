@@ -86,5 +86,5 @@ id_color = " . ($id_color !== null ? "'$id_color'" : "NULL") .
 " WHERE id_producto = $id_producto";
 
 $conn->query($sql);
-header('location:Productos.php');
+header('location:../../../Vista/Administrador/crud_producto/Productos.php');
 ?>

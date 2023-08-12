@@ -61,4 +61,4 @@ id_talla,id_color,descripcion) VALUES ('$nombre_producto',$precio_producto,
 $stock,'$rdp_Absoluta','$rds1_Absoluta','$rds2_Absoluta',$codigo_estado,
 $id_marca,$id_categoria," . ($precio_oferta !== null ? "'$precio_oferta'" : "NULL") . "," . ($fecha_caducidad !== null ? "'$fecha_caducidad'" : "NULL") . ", " . ($id_talla !== null ? "'$id_talla'" : "NULL") . ", " . ($id_color !== null ? "'$id_color'" : "NULL") . ",'$descripcion')";
 $conn->query($sqlc);
-header('location:Productos.php');
+header('location:../../../Vista/Administrador/crud_producto/Productos.php');

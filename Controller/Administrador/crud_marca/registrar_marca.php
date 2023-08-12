@@ -14,4 +14,4 @@ move_uploaded_file($img_marca_RI, $ruta_destinomarca);
 $sqlc = "INSERT INTO marca (nombre_marca,img_marca,estado_marca)
 VALUES ('$nombre_marca','$rd_Absoluta',$estado_marca)";
 $conn->query($sqlc);
-header('location:Marca.php');
+header('location:../../../Vista/Administrador/crud_marca/Marca.php');

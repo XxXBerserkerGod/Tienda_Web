@@ -7,7 +7,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="registrar_categoria.php" method="post" enctype="multipart/form-data">
+                    <form action="/Tienda_Web/Controller/Administrador/crud_categoria/registrar_categoria.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>
                             <input type="text" name="nombre_categoria" id="nombre_categoria" class="form-control border-primary" required>

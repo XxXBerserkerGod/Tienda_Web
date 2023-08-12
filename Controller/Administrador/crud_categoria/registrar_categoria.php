@@ -17,4 +17,4 @@ move_uploaded_file($img_categoria_RI, $ruta_destinocat);
 $sqlc = "INSERT INTO categoria (nombre_categoria,img_catg,estado_categoria)
 VALUES ('$nombre_categoria','$rd_Absoluta',$estado_categoria)";
 $conn->query($sqlc);
-header('location:Categoria.php');
+header('location:../../../Vista/Administrador/crud_categoria/Categoria.php');
