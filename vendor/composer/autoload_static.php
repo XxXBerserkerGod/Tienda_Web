@@ -4,52 +4,52 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1a868a0f8b9f7319aada08cb1558adca
+class ComposerStaticInit80fc2cc5857aa9d524da69afd3f562fd
 {
-    public static $prefixLengthsPsr4 = array(
-        'S' =>
-        array(
+    public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
             'Svg\\' => 4,
             'Sabberworm\\CSS\\' => 15,
         ),
-        'M' =>
-        array(
+        'M' => 
+        array (
             'Masterminds\\' => 12,
         ),
-        'F' =>
-        array(
+        'F' => 
+        array (
             'FontLib\\' => 8,
         ),
-        'D' =>
-        array(
+        'D' => 
+        array (
             'Dompdf\\' => 7,
         ),
     );
 
-    public static $prefixDirsPsr4 = array(
-        'Svg\\' =>
-        array(
+    public static $prefixDirsPsr4 = array (
+        'Svg\\' => 
+        array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
         ),
-        'Sabberworm\\CSS\\' =>
-        array(
+        'Sabberworm\\CSS\\' => 
+        array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
-        'Masterminds\\' =>
-        array(
+        'Masterminds\\' => 
+        array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
         ),
-        'FontLib\\' =>
-        array(
+        'FontLib\\' => 
+        array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
         ),
-        'Dompdf\\' =>
-        array(
+        'Dompdf\\' => 
+        array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
     );
 
-    public static $classMap = array(
+    public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
     );
@@ -57,9 +57,10 @@ class ComposerStaticInit1a868a0f8b9f7319aada08cb1558adca
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1a868a0f8b9f7319aada08cb1558adca::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1a868a0f8b9f7319aada08cb1558adca::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit1a868a0f8b9f7319aada08cb1558adca::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit80fc2cc5857aa9d524da69afd3f562fd::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit80fc2cc5857aa9d524da69afd3f562fd::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit80fc2cc5857aa9d524da69afd3f562fd::$classMap;
+
         }, null, ClassLoader::class);
     }
 }

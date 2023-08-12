@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-//consulta -------------------------------------FALTA TERMINAR
-=======
 //consulta 
->>>>>>> ModifiMoises
 include("../../../Modelo/conexion.php");
 $sql = "SELECT * 
 FROM estado_producto";
@@ -27,11 +23,7 @@ $listar5 = $conn->query($sql5);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-  <title>Document</title>
-=======
   <title>Editar Producto</title>
->>>>>>> ModifiMoises
 </head>
 
 <body>
@@ -39,42 +31,6 @@ $listar5 = $conn->query($sql5);
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-<<<<<<< HEAD
-          <h1 class="modal-title fs-5" id="editarmodprodLabel">Registrar Producto</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form action="editar_producto.php" method="post" enctype="multipart/form-data">
-            <div class="row">
-              <div class="col-12 col-md-6">
-                <div class="mb-3">
-                  <label for="nombre_producto" class="form-label">Producto</label>
-                  <input type="text" name="nombre_producto" id="nombre_producto" class="form-control border-primary" required>
-                </div>
-                <div class="mb-3">
-                  <label for="descripcion" class="form-label">Descripción</label>
-                  <input type="text" name="descripcion" id="descripcion" class="form-control border-primary" required>
-                </div>
-                <div class="mb-3">
-                  <label for="precio_producto" class="form-label">Precio</label>
-                  <input type="text" name="precio_producto" id="precio_producto" class="form-control border-primary" required>
-                </div>
-                <div class="mb-3">
-                  <label for="stock" class="form-label">stock</label>
-                  <input type="number" name="stock" id="stock" class="form-control border-primary" required>
-                </div>
-                <div class="mb-3">
-                  <label for="img_principal" class="form-label">Imagen Principal</label>
-                  <input type="file" name="img_principal" id="img_principal" class="form-control border-primary" required>
-                </div>
-                <div class="mb-3">
-                  <label for="img_uno" class="form-label">Sub Imagen 1</label>
-                  <input type="file" name="img_uno" id="img_uno" class="form-control border-primary" required>
-                </div>
-                <div class="mb-3">
-                  <label for="img_dos" class="form-label">Sub Imagen 2</label>
-                  <input type="file" name="img_dos" id="img_dos" class="form-control border-primary" required>
-=======
           <h5 class="modal-title" id="editarmodprodLabel">Editar Productox</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -110,78 +66,39 @@ $listar5 = $conn->query($sql5);
                 <div class="mb-3">
                   <label for="img_dos_e" class="form-label">Sub Imagen 2</label>
                   <input type="file" name="img_dos_e" id="img_dos_e" class="form-control border-primary">
->>>>>>> ModifiMoises
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="mb-3">
-<<<<<<< HEAD
-                  <label for="codigo_estado" class="form-label">Estado</label>
-                  <select id="codigo_estado" name="codigo_estado" class="form-select border-primary">
-                    <?php while ($row = $listar->fetch_assoc()) {
-                      if ($row["descripcion"] != "Inactivo") { ?>
-                        <option value="<?php echo $row["codigo_estado"] ?>" name="codigo_estado"><?php echo $row["descripcion"]; ?></option>
-=======
                   <label class="form-label">Estado</label>
                   <select id="codigo_estado_e" name="codigo_estado_e" class="form-select border-primary">
                     <?php while ($row = $listar->fetch_assoc()) {
                       if ($row["descripcion"] != "Inactivo") { ?>
                         <option value="<?php echo $row["codigo_estado"] ?>" name="codigo_estado_e"><?php echo $row["descripcion"]; ?></option>
->>>>>>> ModifiMoises
                     <?php }
                     }; ?>
                   </select>
                 </div>
 
                 <div class="mb-3">
-<<<<<<< HEAD
-                  <label for="id_marca" class="form-label">Marca</label>
-                  <select id="id_marca" name="id_marca" class="form-select border-primary">
-                    <?php while ($row2 = $listar2->fetch_assoc()) { ?>
-                      <option value="<?php echo $row2["id_marca"]; ?>" name="id_marca"><?php echo $row2["nombre_marca"]; ?></option>
-=======
                   <label class="form-label">Marca</label>
                   <select id="id_marca_e" name="id_marca_e" class="form-select border-primary">
                     <?php while ($row2 = $listar2->fetch_assoc()) { ?>
                       <option value="<?php echo $row2["id_marca"]; ?>" name="id_marca_e"><?php echo $row2["nombre_marca"]; ?></option>
->>>>>>> ModifiMoises
                     <?php }; ?>
                   </select>
                 </div>
 
                 <div class="mb-3">
-<<<<<<< HEAD
-                  <label for="id_categoria" class="form-label">Categoria</label>
-                  <select id="id_categoria" name="id_categoria" class="form-select border-primary">
-                    <?php while ($row3 = $listar3->fetch_assoc()) { ?>
-                      <option value="<?php echo $row3["id_categoria"]; ?>" name="id_categoria"><?php echo $row3["nombre_categoria"]; ?></option>
-=======
                   <label class="form-label">Categoria</label>
                   <select id="id_categoria_e" name="id_categoria_e" class="form-select border-primary">
                     <?php while ($row3 = $listar3->fetch_assoc()) { ?>
                       <option value="<?php echo $row3["id_categoria"]; ?>" name="id_categoria_e"><?php echo $row3["nombre_categoria"]; ?></option>
->>>>>>> ModifiMoises
                     <?php }; ?>
                   </select>
                 </div>
 
                 <div class="mb-3">
-<<<<<<< HEAD
-                  <label for="precio_oferta" class="form-label">Precio en Oferta(opc)</label>
-                  <input type="text" name="precio_oferta" id="precio_oferta" class="form-control border-primary">
-                </div>
-
-                <div class="mb-3">
-                  <label for="fecha_caducidad" class="form-label">Fecha de Caducidad(opc)</label>
-                  <input type="date" name="fecha_caducidad" id="fecha_caducidad" class="form-control border-primary">
-                </div>
-
-                <div class="mb-3">
-                  <label for="id_talla" class="form-label">Talla(opc)</label>
-                  <select id="id_talla" name="id_talla" class="form-select border-primary">
-                    <?php while ($row4 = $listar4->fetch_assoc()) { ?>
-                      <option value="<?php echo $row4["id_talla"]; ?>" name="id_talla"><?php echo $row4["nombre_talla"]; ?></option>
-=======
                   <label class="form-label">Precio en Oferta(opc)</label>
                   <input type="text" name="precio_oferta_e" id="precio_oferta_e" class="form-control border-primary">
                 </div>
@@ -196,23 +113,15 @@ $listar5 = $conn->query($sql5);
                   <select id="id_talla_e" name="id_talla_e" class="form-select border-primary">
                     <?php while ($row4 = $listar4->fetch_assoc()) { ?>
                       <option value="<?php echo $row4["id_talla"]; ?>" name="id_talla_e"><?php echo $row4["nombre_talla"]; ?></option>
->>>>>>> ModifiMoises
                     <?php }; ?>
                   </select>
                 </div>
 
                 <div class="mb-3">
-<<<<<<< HEAD
-                  <label for="id_color" class="form-label">Color(opc)</label>
-                  <select id="id_color" name="id_color" class="form-select border-primary">
-                    <?php while ($row5 = $listar5->fetch_assoc()) { ?>
-                      <option value="<?php echo $row5["id_color"]; ?>" name="id_color"><?php echo $row5["nombre_color"]; ?></option>
-=======
                   <label class="form-label">Color(opc)</label>
                   <select id="id_color_e" name="id_color_e" class="form-select border-primary">
                     <?php while ($row5 = $listar5->fetch_assoc()) { ?>
                       <option value="<?php echo $row5["id_color"]; ?>" name="id_color_e"><?php echo $row5["nombre_color"]; ?></option>
->>>>>>> ModifiMoises
                     <?php }; ?>
                   </select>
                 </div>
@@ -225,12 +134,6 @@ $listar5 = $conn->query($sql5);
 
             </div>
           </form>
-<<<<<<< HEAD
-        </div>
-      </div>
-    </div>
-</body>
-=======
 
 
 
@@ -282,7 +185,7 @@ $listar5 = $conn->query($sql5);
         tallaSelect2.setAttribute('required', 'true');
       };
 
-      
+
       const selectedOption2 = estadoSelect2.options[estadoSelect2.selectedIndex];
       if (selectedOption2) {
         const selectestado2 = selectedOption2.text;
@@ -347,5 +250,4 @@ $listar5 = $conn->query($sql5);
 
 </body>
 
->>>>>>> ModifiMoises
 </html>

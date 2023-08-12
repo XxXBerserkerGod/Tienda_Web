@@ -155,7 +155,8 @@ $nombrepag = basename($urlpag);
     include('Modelo/registermodal.php');
     ?>
 
-
+    <script src="JS/Carrito.js"></script>
+    <script src="JS/Pedidos.js"></script>
 </body>
 
 </html>
