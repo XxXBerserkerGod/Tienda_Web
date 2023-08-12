@@ -14,6 +14,7 @@ $nombrepag = basename($urlpag);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,10 +26,13 @@ $nombrepag = basename($urlpag);
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top container-fluid px-5">
-        <img src="img/logo1.webp" alt="" style="width: 70px;">
-        <p>
-            P. Janet
-        </p>
+        <div class="d-flex justify-content-center align-items-center">
+
+            <img src="img/logo1.webp" alt="" style="width: 70px;">
+            <p class="m-0 ms-1 fw-bold">
+                Bazar Perfumeria Janet
+            </p>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i id="bar" class="fa-solid fa-bars"></i></span>
         </button>
@@ -46,14 +50,14 @@ $nombrepag = basename($urlpag);
                         Categorias
                     </a>
                     <ul class="dropdown-menu">
-                        <?php 
-                            while($categoria = $categorias->fetch_assoc()) {                  
+                        <?php
+                        while ($categoria = $categorias->fetch_assoc()) {
                         ?>
                             <li>
-                                <a class="dropdown-item <?php if ($nombrepag === 'shop.php?categoria='.$categoria['id_categoria']) echo 'active'; ?>" href="/Tienda_Web/shop.php?categoria=<?=$categoria['id_categoria'];?>"><?=$categoria['nombre_categoria'];?></a>
+                                <a class="dropdown-item <?php if ($nombrepag === 'shop.php?categoria=' . $categoria['id_categoria']) echo 'active'; ?>" href="/Tienda_Web/shop.php?categoria=<?= $categoria['id_categoria']; ?>"><?= $categoria['nombre_categoria']; ?></a>
                             </li>
-                        <?php 
-                            }
+                        <?php
+                        }
                         ?>
                     </ul>
                 </li>
@@ -62,14 +66,14 @@ $nombrepag = basename($urlpag);
                         Marcas
                     </a>
                     <ul class="dropdown-menu">
-                    <?php 
-                            while($marca = $marcas->fetch_assoc()) {                  
+                        <?php
+                        while ($marca = $marcas->fetch_assoc()) {
                         ?>
                             <li>
-                                <a class="dropdown-item <?php if ($nombrepag === 'shop.php?marca='.$marca['id_marca']) echo 'active'; ?>" href="/Tienda_Web/shop.php?marca=<?=$marca['id_marca'];?>"><?=$marca['nombre_marca'];?></a>
+                                <a class="dropdown-item <?php if ($nombrepag === 'shop.php?marca=' . $marca['id_marca']) echo 'active'; ?>" href="/Tienda_Web/shop.php?marca=<?= $marca['id_marca']; ?>"><?= $marca['nombre_marca']; ?></a>
                             </li>
-                        <?php 
-                            }
+                        <?php
+                        }
                         ?>
                     </ul>
                 </li>
@@ -82,16 +86,16 @@ $nombrepag = basename($urlpag);
                 </li>
 
                 <?php
-                
+
                 if (isset($_SESSION['loged']) && $_SESSION['loged'] == '1') {
                     $idusuario = $_SESSION['usuario'];
                     $sqlusuario = "SELECT * FROM usuario
                                     WHERE id_usu = '$idusuario'";
                     $usuario = ($conn->query($sqlusuario))->fetch_assoc();
-                    $nombres = $usuario['apellidos_usu'].", ".$usuario['nombres_usu'];
+                    $nombres = $usuario['apellidos_usu'] . ", " . $usuario['nombres_usu'];
                 ?>
                     <li class="nav-item ms-4">
-                        Bienvenido <?=$nombres;?>
+                        Bienvenido <?= $nombres; ?>
                     </li>
                     <li class="nav-item ms-4">
                         <a class="nav-link" href="./Controller/logout.php">

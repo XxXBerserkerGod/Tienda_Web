@@ -72,6 +72,7 @@ hr {
     color: goldenrod;
 }
 
+
 .navbar {
     font-size: 16px;
     top: 0;
@@ -170,6 +171,8 @@ hr {
 /* Estilos de ofertas */
 #new .one {
     position: relative;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -188,6 +191,8 @@ hr {
     height: 100%;
     top: 0;
     left: 0;
+    padding: 0;
+    margin: 0;
     transition: 0.3s ease;
 }
 
@@ -200,18 +205,16 @@ hr {
     display: inline-block;
     font-size: 14px;
     font-weight: 500;
-    color: #2a2a2a;
-    background: none;
     text-transform: uppercase;
-    border-bottom: 1px solid #2a2a2a;
     padding: 2.5px;
-    transform: translateY(70px);
+    transform: translateY(120px);
     transition: 0.3s ease;
+    width: 180px;
 }
 
 #new .one .details button:hover {
-    color: #fff;
-    border-bottom: 1px solid #fff;
+    color: black;
+
 }
 
 #new .one:nth-child(1) .details {
@@ -238,6 +241,13 @@ hr {
     text-align: end;
 }
 
+#new .one:nth-child(4) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: end;
+}
 
 /* Products */
 
