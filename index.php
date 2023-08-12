@@ -1,7 +1,9 @@
 <?php
 
 include('Modelo/conexion.php');
-
+$sql = "SELECT * FROM producto
+        WHERE codigo_estado = 1";
+$ofertas = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,8 +82,6 @@ include('Modelo/conexion.php');
                 </div>
             </section>
 
-
-
             <!-- SECCION DE CATEGORIAS  -->
             <section id="new">
                 <div class="row mx-auto container-fluid">
@@ -112,9 +112,7 @@ include('Modelo/conexion.php');
                 </div>
             </section>
 
-
             <!-- PRODUCTOS MAS VENDIDOS -->
-
             <section id="featured" class="my-5 pb-5">
                 <div class="container text-center mt-5 py-5">
                     <h3>Productos destacados</h3>
@@ -122,62 +120,27 @@ include('Modelo/conexion.php');
                     <p>Aquí puede ver nuestros nuevos productos a un precio justo en Bazar Perfumeria Janet</p>
                 </div>
                 <div class="row mx-auto container-fluid">
-                    <div class="product text-center col-lg-3 col-md-4 col-12">
-                        <img class="img-fluid mb-3" src="img/featured/1.jpg" alt="">
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                    <?php
+                    while ($oferta = $ofertas->fetch_assoc()) {
+                    ?>
+                        <div class="product text-center col-lg-3 col-md-4 col-12">
+                            <img onclick="window.location.href='sproduct.php?id=<?= $oferta['id_producto']; ?>';" class="product img-fluid mb-3" src="<?= $oferta['img_principal']; ?>" alt="">
+                            <div class="star">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h5 class="p-name"><?= $oferta['nombre_producto']; ?></h5>
+                            <h4 class="p-price text-danger text-decoration-line-through"><?= $oferta['precio_producto']; ?></h4>
+                            <h4 class="p-price"><?= $oferta['precio_oferta']; ?></h4>
+                            <button class="buy-btn">Comprar</button>
                         </div>
-                        <h5 class="p-name">Sport Boots</h5>
-                        <h4 class="p-price">S/. 92.00</h4>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
-                    <div class="product text-center col-lg-3 col-md-4 col-12">
-                        <img class="img-fluid mb-3" src="img/featured/2.jpg" alt="">
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="p-name">Sport Boots</h5>
-                        <h4 class="p-price">S/. 92.00</h4>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
-                    <div class="product text-center col-lg-3 col-md-4 col-12">
-                        <img class="img-fluid mb-3" src="img/featured/3.jpg" alt="">
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="p-name">Sport Boots</h5>
-                        <h4 class="p-price">S/. 92.00</h4>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
-                    <div class="product text-center col-lg-3 col-md-4 col-12">
-                        <img class="img-fluid mb-3" src="img/featured/4.jpg" alt="">
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h5 class="p-name">Sport Boots</h5>
-                        <h4 class="p-price">S/. 92.00</h4>
-                        <button class="buy-btn">Comprar</button>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
-
-
-
 
                 <!-- SECCION DE COMENTARIOS -->
                 <section id="comments" class="container text-center mt-5">

@@ -1,4 +1,9 @@
-
+<?php
+include('../../Controller/session.php');
+if ($_SESSION['tipo'] != 2) {
+    header('location:../../index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

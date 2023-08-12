@@ -1,6 +1,11 @@
 <?php
 include('Modelo/conexion.php');
 $id = $_GET["id"];
+$sql = "SELECT *
+        FROM producto AS prod INNER JOIN categoria AS cat
+            ON prod.id_categoria = cat.id_categoria
+        WHERE id_producto = '$id'";
+$listar = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -60,11 +65,6 @@ $id = $_GET["id"];
 
         <?php
         include('menunav.php');
-        $sql = "SELECT *
-                FROM producto AS prod INNER JOIN categoria AS cat
-                    ON prod.id_categoria = cat.id_categoria
-                WHERE id_producto = '$id'";
-        $listar = $conn->query($sql);
         $row = $listar->fetch_assoc();
         ?>
 
@@ -72,28 +72,40 @@ $id = $_GET["id"];
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-12 col-12">
 
-                    <img class="img-fluid w-100 pb-1" src="<?=$row['img_principal'];?>" id="MainImg" alt="">
+                    <img class="img-fluid w-100 pb-1" src="<?= $row['img_principal']; ?>" id="MainImg" alt="">
 
                     <div class="small-img-group">
                         <div class="small-img-col">
-                            <img src="<?=$row['img_principal']; ?>" width="100%" class="small-img" alt="">
+                            <img src="<?= $row['img_principal']; ?>" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="<?=$row['img_uno']; ?>" width="100%" class="small-img" alt="">
+                            <img src="<?= $row['img_uno']; ?>" width="100%" class="small-img" alt="">
                         </div>
                         <div class="small-img-col">
-                            <img src="<?=$row['img_dos']; ?>" width="100%" class="small-img" alt="">
+                            <img src="<?= $row['img_dos']; ?>" width="100%" class="small-img" alt="">
                         </div>
 
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-12">
-                    <h6> <a href="shop.php" class="text-decoration-none text-black">Productos</a> / <?=$row['nombre_categoria']?></h6>
+                    <h6> <a href="shop.php" class="text-decoration-none text-black">Productos</a> / <?= $row['nombre_categoria'] ?></h6>
                     <h3 class="py-4"><?= $row['nombre_producto'] ?></h3>
-                    <h2>S/. <?= $row['precio_producto'] ?></h2>
-                    <?php 
-                        if ($row['id_categoria'] == 4) {
+                    <?php
+                    if ($row['codigo_estado'] == 1) {
+                    ?>
+                        <div class="d-flex">
+                            <h2 class="text-danger text-decoration-line-through">S/. <?= $row['precio_producto'] ?> </h2>
+                            <h2> &nbsp;- S/. <?= $row['precio_oferta'] ?></h2>
+                        </div>
+
+                    <?php
+                    } else {
+                    ?>
+                        <h2>S/. <?= $row['precio_producto'] ?></h2>
+                    <?php
+                    }
+                    if ($row['id_categoria'] == 4) {
                     ?>
                         <select class="my-3">
                             <option>Selecciona Talla</option>
@@ -103,8 +115,16 @@ $id = $_GET["id"];
                             <option>XL</option>
                             <option>XXL</option>
                         </select>
-                    <?php 
-                        }
+                        <select class="my-3">
+                            <option>Selecciona Color</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                        </select>
+                    <?php
+                    }
                     ?>
                     <input type="number" value="1">
                     <button class="buy-btn">Agregar al Carrito</button>
@@ -121,29 +141,29 @@ $id = $_GET["id"];
                 <hr class="mx-auto">
             </div>
             <div class="row mx-auto container-fluid">
-            <?php
+                <?php
                 $idcat = $row['id_categoria'];
                 $sqlrelacionados = "SELECT * FROM producto
                                     WHERE id_categoria = '$idcat'";
                 $relacionados = $conn->query($sqlrelacionados);
                 while ($relacionado = $relacionados->fetch_assoc()) {
-            ?>
-                <div onclick="window.location.href='sproduct.php?id=<?= $relacionado['id_producto']; ?>';" class="product col-lg-3 col-md-4 col-12 text-center">
-                    <img class="mb-3 img-fluid pimg" src="<?= $relacionado['img_principal']; ?>" style="height: 286.88px;">
-                    <div class="star">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                ?>
+                    <div onclick="window.location.href='sproduct.php?id=<?= $relacionado['id_producto']; ?>';" class="product col-lg-3 col-md-4 col-12 text-center">
+                        <img class="mb-3 img-fluid pimg" src="<?= $relacionado['img_principal']; ?>" style="height: 286.88px;">
+                        <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h5 class="p-name"><?= $relacionado['nombre_producto']; ?></h5>
+                        <h4 class="p-price">S/. <?= $relacionado['precio_producto']; ?></h4>
+                        <button class="buy-btn">Comprar</button>
                     </div>
-                    <h5 class="p-name"><?= $relacionado['nombre_producto']; ?></h5>
-                    <h4 class="p-price">S/. <?= $relacionado['precio_producto']; ?></h4>
-                    <button class="buy-btn">Comprar</button>
-                </div>
-            <?php
-            }
-            ?>
+                <?php
+                }
+                ?>
             </div>
         </section>
 

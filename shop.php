@@ -6,8 +6,8 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
         $categoria = $_GET['categoria'];
         $sql = "SELECT * FROM producto
                 WHERE id_categoria = '$categoria'";
-        $listar = $conn->query($sql);            
-    } 
+        $listar = $conn->query($sql);
+    }
     if (isset($_GET['marca'])) {
         $marca = $_GET['marca'];
         $sql = "SELECT * FROM producto
@@ -76,10 +76,9 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
 
                 <?php
                 while ($row = $listar->fetch_assoc()) {
-
                 ?>
-                    <div onclick="window.location.href='sproduct.php?id=<?= $row['id_producto']; ?>';" class="product col-lg-3 col-md-4 col-12 text-center">
-                        <img class="mb-3 img-fluid pimg" src="<?= $row['img_principal']; ?>" style="height: 286.88px;">
+                    <div class="product col-lg-3 col-md-4 col-12 text-center">
+                        <img onclick="window.location.href='sproduct.php?id=<?= $row['id_producto']; ?>';" class="product mb-3 img-fluid pimg" src="<?= $row['img_principal']; ?>" style="height: 286.88px;">
                         <div class="star">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -88,12 +87,22 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
                             <i class="fas fa-star"></i>
                         </div>
                         <h5 class="p-name"><?= $row['nombre_producto']; ?></h5>
-                        <h4 class="p-price">S/. <?= $row['precio_producto']; ?></h4>
+                        <?php
+                        if ($row['codigo_estado'] == 1) {
+                        ?>
+                            <h4 class="p-price text-danger text-decoration-line-through"><?= $row['precio_producto']; ?></h4>
+                            <h4 class="p-price"><?= $row['precio_oferta']; ?></h4>
+                        <?php
+                        } else {
+                        ?>
+                            <h4 class="p-price">S/. <?= $row['precio_producto']; ?></h4>
+                        <?php
+                        }
+                        ?>
                         <button class="buy-btn">Comprar</button>
                     </div>
 
                 <?php
-
                 }
                 ?>
                 <nav aria-label="...">
