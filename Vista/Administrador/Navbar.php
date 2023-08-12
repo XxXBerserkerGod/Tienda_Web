@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
@@ -30,18 +32,18 @@
                             Reportes
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
-                            <li><a class="dropdown-item" href="#"> <i class="fa-solid fa-download fa-shake fa-md" style="color: #b7b3d1;"></i> Ventas</a></li>
-                            <li><a class="dropdown-item" href="/Tienda_Web/Vista/Administrador/Reportes/reporte_usuarios.php"> <i class="fa-solid fa-download fa-shake fa-md" style="color: #b7b3d1;"></i> Usuarios</a></li>
+                            <li><a class="dropdown-item" href="/Tienda_Web/Controller/Administrador/Reportes/reporte_productos.php"> <i class="fa-solid fa-download fa-shake fa-md" style="color: #b7b3d1;"></i> Productos</a></li>
+                            <li><a class="dropdown-item" href="/Tienda_Web/Controller/Administrador/Reportes/reporte_usuarios.php"> <i class="fa-solid fa-download fa-shake fa-md" style="color: #b7b3d1;"></i> Usuarios</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
-
-            <a class="navbar-brand " href="/Tienda_Web/index.php" >
-                <i class="fa-solid fa-arrow-right-from-bracket fa-fade fa-md" style="color: #ced4de; " ></i>
+            <a class="navbar-brand " href="/Tienda_Web/index.php">
+                <i class="fa-solid fa-arrow-right-from-bracket fa-fade fa-md" style="color: #ced4de; "></i>
                 Salir</a>
 
         </div>
     </nav>
 </body>
+
 </html>

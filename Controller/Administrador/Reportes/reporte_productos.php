@@ -1,13 +1,19 @@
 <?php
 // Incluir la librería Dompdf
-require '../../../vendor/autoload.php';
+
 include '../../../Modelo/conexion.php';
+require '../../../vendor/autoload.php';
 
 use Dompdf\Dompdf;
-
 $dompdf = new Dompdf();
 
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT *,p.descripcion as desc_prod ,ep.descripcion as n_estado 
+from marca m inner join producto p ON
+m.id_marca=p.id_producto inner join categoria cat ON
+p.id_categoria=cat.id_categoria inner join estado_producto ep ON
+p.codigo_estado=ep.codigo_estado
+where ep.descripcion in ('Oferta','Bueno','Deteriorado','Caducado')
+order by p.id_producto asc";
 $resultado = $conn->query($sql);
 
 // Crear el contenido del PDF con la tabla y los datos de la consulta
@@ -18,7 +24,6 @@ $contenido = '<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Usuarios</title>
     <style>
-      /* Estilos para la alineación y diseño */
       .header {
         display: flex;
         justify-content: space-between;
@@ -69,23 +74,26 @@ $contenido = '<!DOCTYPE html>
         background-color: #f0f0f0;
       }
 
-      .table th:first-child,
       .table td:first-child {
         width: 5%;
       }
 
-      .table th:nth-child(2){
-        width: 25%;
-      }
-      .table th:nth-child(3){
+      .table td:nth-child(2){
         width: 15%;
       }
-      .table th:nth-child(4){
-        width: 15%;
+      .table td:nth-child(3),
+      .table td:nth-child(4){
+        width: 10%;
       }
       .table td:nth-child(5),
-      .table td:nth-child(6) {
-        width: 20%;
+      .table td:nth-child(6){
+        width: 10%;
+      }
+      .table td:nth-child(5),
+      .table td:nth-child(6),
+      .table td:nth-child(7),
+      .table td:nth-child(8){
+        width: 10%;
       }
       @page {
         size: landscape;
@@ -96,11 +104,7 @@ $contenido = '<!DOCTYPE html>
   <div class="container">
     <!-- Fila para el logo, fecha y título -->
     <div class="header">
-  <div class="logo">
-    <!-- Etiqueta para el logo de la empresa -->
-    <img src="/Tienda_Web/img/logo1.png" alt="logo" class="logo">
-  </div>
-  <h3 class="report-title">Reporte de Usuarios</h3>
+  <h3 class="report-title">Reporte de Productos</h3>
   <div class="fecha">
     <p class="fecha-text">Fecha: ' . date("Y-m-d") . '</p>
   </div>
@@ -120,23 +124,27 @@ $contenido = '<!DOCTYPE html>
           <thead>
             <tr>
               <th>id</th>
-              <th>Nombres y Apellidos</th>
-              <th>Dni</th>
-              <th>Telefono</th>
-              <th>Correo</th>
-              <th>Dirección</th> 
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Marca</th>
+              <th>Categoria</th>
+              <th>Precio Oferta</th> 
+              <th>Estado</th> 
             </tr>
           </thead>
           <tbody>';
 
 while ($fila = $resultado->fetch_assoc()) {
   $contenido .= '<tr>';
-  $contenido .= '<td>' . $fila['id_usu'] . '</td>';
-  $contenido .= '<td>' . $fila['nombres_usu'] . '</td>';
-  $contenido .= '<td>' . $fila['dni_usu'] . '</td>';
-  $contenido .= '<td>' . $fila['telefono_usu'] . '</td>';
-  $contenido .= '<td>' . $fila['correo_usu'] . '</td>';
-  $contenido .= '<td>' . $fila['direccion'] . '</td>';
+  $contenido .= '<td>' . $fila['id_producto'] . '</td>';
+  $contenido .= '<td>' . $fila['nombre_producto'] . '</td>';
+  $contenido .= '<td>' . $fila['precio_producto'] . '</td>';
+  $contenido .= '<td>' . $fila['stock'] . '</td>';
+  $contenido .= '<td>' . $fila['nombre_marca'] . '</td>';
+  $contenido .= '<td>' . $fila['nombre_categoria'] . '</td>';
+  $contenido .= '<td>' . $fila['precio_oferta'] . '</td>';
+  $contenido .= '<td>' . $fila['n_estado'] . '</td>';
   $contenido .= '</tr>';
 }
 
@@ -151,7 +159,6 @@ $contenido .= '</tbody>
 // Cargar el contenido HTML al objeto Dompdf
 $dompdf->loadHtml($contenido);
 
-// (Opcional) Establecer las opciones de la generación del PDF, como tamaño de papel, etc.
 //$dompdf->setPaper('A4', 'portrait');
 $dompdf->setPaper('landscape', 'A4');
 
@@ -159,4 +166,4 @@ $dompdf->setPaper('landscape', 'A4');
 $dompdf->render();
 
 // Enviar el PDF al navegador
-$dompdf->stream("reporteusuarios.pdf", array('Attachment' => '0'));
+$dompdf->stream("reporteproductos.pdf", array('Attachment' => '0'));
