@@ -72,7 +72,7 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
             </div>
 
 
-            <div class="row mx-auto container">
+            <div id="lista-productos" class="row mx-auto container">
 
                 <?php
                 while ($row = $listar->fetch_assoc()) {
@@ -95,16 +95,55 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
                         <?php
                         } else {
                         ?>
-                            <h4 class="p-price">S/. <?= $row['precio_producto']; ?></h4>
+                            <h4 class="p-price"><?= $row['precio_producto']; ?></h4>
                         <?php
                         }
                         ?>
-                        <button class="buy-btn">Comprar</button>
+                        <button class="buy-btn" data-id="<?= $row['id_producto']; ?>">Comprar</button>
                     </div>
 
                 <?php
                 }
                 ?>
+                <div class="card-deck mb-3 text-center">
+
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h5 class="my-0 font-weight-bold">HP PAVILION</h5>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/hp1.jpg" class="card-img-top">
+                            <h4 class="card-title pricing-card-title precio"> 5000</h4>
+
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>8 GB RAM</li>
+                                <li>COLOR PLATEADO</li>
+                                <li>256 GB DISCO SSD</li>
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary buy-btn" data-id="1">Comprar</a>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h5 class="my-0 font-weight-bold">Moises Pto</h5>
+                        </div>
+                        <div class="card-body">
+                            <img src="img/hp1.jpg" class="card-img-top">
+                            <h4 class="card-title pricing-card-title precio"> 5000</h4>
+
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li></li>
+                                <li>8 GB RAM</li>
+                                <li>COLOR PLATEADO</li>
+                                <li>256 GB DISCO SSD</li>
+                            </ul>
+                            <button type="button" class="btn btn-block btn-primary buy-btn" data-id="2">Comprar</a>
+                        </div>
+                    </div>
+
+                </div>
                 <nav aria-label="...">
                     <ul class="pagination mt-5">
                         <li class="page-item disabled">

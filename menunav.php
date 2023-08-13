@@ -84,7 +84,7 @@ $nombrepag = basename($urlpag);
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown-menu-end">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bag-shopping"></i>
                     </a>
