@@ -32,6 +32,18 @@ $nombrepag = basename($urlpag);
                 Bazar Perfumeria Janet
             </p>
         </div>
+        <div class="d-flex justify-content-center align-items-center mx-5">
+            <div class="dropdown">
+                <div class="d-flex justify-content-center align-items-center" style="border: 1px solid black; border-radius: 6px;">
+
+                    <input type="search" id="search" role="button" class="form-control border-0 shadow-none" data-bs-toggle="dropdown" aria-expanded="false" name="busqueda" placeholder="Buscar productos...">
+                    <ul id="resultados" class="dropdown-menu"></ul>
+                    <label for="search"> <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                </div>
+            </div>
+
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><i id="bar" class="fa-solid fa-bars"></i></span>
         </button>
@@ -94,24 +106,6 @@ $nombrepag = basename($urlpag);
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contactanos</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <i class="fa-solid fa-magnifying-glass dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false"></i>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item d-flex justify-content-starts align-content-center">
-                            <input type="text" id="search" name="busqueda" placeholder="Buscar productos...">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <ul id="resultados">
-                        </ul>
-                    </ul>
-
-                </li>
-                <li class="nav-item">
-<<<<<<< HEAD
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </li>
-
                 <li class="nav-item dropdown-menu-end">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-bag-shopping"></i>
@@ -129,15 +123,11 @@ $nombrepag = basename($urlpag);
                             <tbody></tbody>
                         </table>
                         <div class="d-flex flex-column p-2">
-
                             <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block mb-2">Vaciar Carrito</a>
                             <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
                                 Compra</a>
                         </div>
                     </ul>
-=======
-                    <i onclick="window.location.href='cart.php';" class="fa-solid fa-bag-shopping"></i>
->>>>>>> d0be8d2396bdf6b7f4554535bb1e40d47e21baf4
                 </li>
                 <?php
 
@@ -185,10 +175,6 @@ $nombrepag = basename($urlpag);
     include("Modelo/loginmodal.php");
     include('Modelo/registermodal.php');
     ?>
-<<<<<<< HEAD
-
-
-=======
     <script src="JS/code.jquery.com_jquery-3.7.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -227,7 +213,6 @@ $nombrepag = basename($urlpag);
             });
         });
     </script>
->>>>>>> d0be8d2396bdf6b7f4554535bb1e40d47e21baf4
 </body>
 
 </html>

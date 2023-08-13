@@ -24,7 +24,7 @@
 
         <main class="d-flex flex-grow-1 flex-column">
             <section id="cart" class="container pt-5">
-                <h2 class="font-weight-bold pt-5 mt-5">Shopping Cart</h2>
+                <h2 class="font-weight-bold pt-5 mt-5">Carrito de Compras</h2>
                 <hr>
             </section>
 
@@ -32,18 +32,18 @@
                 <table class="lista-carrito" width="100%">
                     <thead>
                         <tr>
-                            <td>Remove</td>
-                            <td>Image</td>
-                            <td>Product</td>
-                            <td>Price</td>
-                            <td>Quantity</td>
+                            <td>Eliminar</td>
+                            <td>Imagen</td>
+                            <td>Producto</td>
+                            <td>Precio</td>
+                            <td>Cantidad</td>
                             <td>Total</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><a href="#0"><i class="fas fa-trash-alt"></i></a></td>
-                            <td><img src="img/Productos/Maquillaje/base_1.webp" alt=""></td>
+                            <td><img src="img/Productos/Maquillaje/base_1.webp" alt="" style="width: 80px;"></td>
                             <td>
                                 <h5>Handbag Fringilla</h5>
                             </td>
@@ -57,7 +57,7 @@
                         </tr>
                         <tr>
                             <td><a href="#0"><i class="fas fa-trash-alt"></i></a></td>
-                            <td><img src="img/Productos/Maquillaje/base_2.webp" alt=""></td>
+                            <td><img src="img/Productos/Maquillaje/base_2.webp" alt="" style="width: 80px;"></td>
                             <td>
                                 <h5>Handbag Fringilla</h5>
                             </td>
@@ -88,15 +88,15 @@
             </section>
 
             <section id="cart-bottom" class="container">
-                <div class="row">
-                    <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
+                <div class="row d-flex justify-content-end">
+                    <!-- <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
                         <div>
                             <h5>COUPON</h5>
                             <p>Enter your coupon code if you have one. </p>
                             <input type="text" placeholder="Coupon Code">
                             <button>APPLY COUPON</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="total col-lg-6 col-md-6 col-12">
                         <div>
                             <h5>CART TOTAL</h5>

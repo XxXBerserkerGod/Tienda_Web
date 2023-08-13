@@ -65,10 +65,33 @@ if (isset($_GET['categoria']) || isset($_GET['marca'])) {
         ?>
 
         <section id="featured" class="my-5 py-5">
-            <div class="container mt-5 py-5">
-                <h2 class="font-weight-bold">Our Featured</h2>
+            <div class="container mt-3 py-5">
+                <?php
+
+
+                if (isset($_GET['categoria'])) {
+                    $categoria = $_GET['categoria'];
+                    $sqlcategoria = "SELECT * FROM categoria
+                                    WHERE id_categoria = '$categoria'";
+                    $categorias = ($conn->query($sqlcategoria))->fetch_assoc();
+                ?>
+                    <h2 class="font-weight-bold"><?= $categorias['nombre_categoria']; ?></h2>
+                <?php
+                } else if (isset($_GET['marca'])) {
+                    $marca = $_GET['marca'];
+                    $sqlmarca = "SELECT * FROM marca
+                    WHERE id_marca = '$marca'";
+                    $marcas = ($conn->query($sqlmarca))->fetch_assoc();
+                ?>
+                    <h2 class="font-weight-bold"><?= $marcas['nombre_marca']; ?></h2>
+                <?php
+                } else {
+                ?>
+                    <h2 class="font-weight-bold">Productos</h2>
+                <?php
+                }
+                ?>
                 <hr>
-                <p>Here you can check out our new products with fair price on rymo.</p>
             </div>
 
 
