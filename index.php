@@ -253,7 +253,6 @@ $ofertas = $conn->query($sql);
         include("footer.php");
         ?>
         <script src="JS/bootstrap.bundle.js"> </script>
-
 </body>
 
 </html>
